@@ -1,0 +1,16 @@
+<div class="row all_2_comp">
+  <div class="col-8 col-lg-10 all_items">
+    <div class="row ">
+      <div class="col-12 text-center">
+        <h2>All Items</h2>
+      </div>
+    </div>
+    <div class="row app-menu-items">
+      <app-menu-item *ngFor="let menu_item of menuItems" [menuItem]="menu_item"
+        class="row app-menu-item col-12 col-sm-6 col-lg-4 col-xl-3"></app-menu-item>
+    </div>
+  </div>
+  <div class="col-4 col-lg-2 your_cart">
+    <app-cart class="fixed-position"></app-cart>
+  </div>
+</div>

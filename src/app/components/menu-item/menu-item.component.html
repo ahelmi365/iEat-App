@@ -1,0 +1,37 @@
+<div class="menu_items">
+  <div class="card menu_item">
+
+    <div class="card-body">
+      <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
+      <div class="item_details">
+        <div>
+          <h6 class="card-title">{{menuItem.name}}</h6>
+
+        </div>
+        <div class="item_price">${{menuItem.price}}</div>
+
+      </div>
+      <div class="item_desc">
+        <p class="card-text item_description">{{menuItem.description}}</p>
+      </div>
+      <div class="order_menu_item">
+        <div class="plus-minus-item">
+
+          <div (click)="onMinusClick($event)" class="fa-minus-item">
+            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+          </div>
+          <div class="item_quant input-group input-group-sm">
+            <input [value]="menuItemService.itemQuanitity" type="text" name="" id="" class="form-control form-input small text-center">
+          </div>
+          <div (click)="onPlusClick($event)" class="fa-plus-item"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+
+        </div>
+        <div class="add-item_menu">
+          <button class="btn btn-success btn-sm">Add</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

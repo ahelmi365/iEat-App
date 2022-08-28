@@ -1,0 +1,8 @@
+ .my-container{
+  margin: 80px  auto;
+  max-width: 1024px;
+}
+
+.items-list-and-filter{
+  margin: 0 2rem;
+}

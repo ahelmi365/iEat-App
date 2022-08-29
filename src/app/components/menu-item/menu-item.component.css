@@ -1,11 +1,13 @@
 .menu_items {
-  margin-bottom: 1rem;;
+  margin-bottom: 1rem;
+  ;
 }
 
-.menu_item:hover{
+.menu_item:hover {
   border: 1px solid #0aad0a;
 }
-.order_menu_item{
+
+.order_menu_item {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -13,65 +15,70 @@
   margin-top: 1rem;
 }
 
-.plus-minus-item{
+.plus-minus-item {
   display: flex;
   gap: 5%;
   flex-basis: 60%;
 }
 
-
-.add-item_menu{
+.add-item_menu {
   flex-basis: 20%;
 }
 
-.fa-plus-item{
+.fa-plus-item {
   color: green;
 }
-.fa-minus-item{
-  color:red;
+
+.fa-minus-item {
+  color: red;
 }
-.fa-minus-item, .fa-plus-item{
+
+.fa-minus-item,
+.fa-plus-item {
   font-size: 1.25rem;
   align-items: center;
   cursor: pointer;
-
 }
 
-.item_quant{
+.item_quant {
   width: 50px;
-
 }
 
-.item_details{
+.item_details {
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
-.item_price{
+.item_price,
+button.btn.btn-success.btn-sm {
   font-weight: bold;
+}
+
+.card-title {
+  font-size: .8rem;
+}
+
+.item_price,
+button.btn.btn-success.btn-sm,
+.item_description {
   font-size: 0.7rem;
 }
 
-.item_description{
-  font-size: 0.7rem;
-}
-
-.item_desc .item_description{
+.item_desc .item_description {
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
   display: block;
 }
 
-.item_desc .item_description:hover{
+.item_desc .item_description:hover {
   white-space: unset;
   text-overflow: unset;
-  width:unset;
+  width: unset;
 }
-.card-img-top{
+
+.card-img-top {
   object-fit: cover;
   height: 116px;
   margin-bottom: 0.5rem;
 }
-
-

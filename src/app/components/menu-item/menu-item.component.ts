@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { menuItem } from 'src/app/models/menu_items_model';
-import { MenuItemService } from 'src/app/services/menu-item.service';
+import { MenuItemsService } from 'src/app/services/menu-items.service';
+import { CartItemsService } from 'src/app/services/cart-items.service';
+
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
@@ -8,7 +10,9 @@ import { MenuItemService } from 'src/app/services/menu-item.service';
 })
 export class MenuItemComponent implements OnInit {
   @Input() menuItem: menuItem;
-  constructor(protected menuItemService: MenuItemService) {
+  private selectedMenuItems:menuItem[]= [];
+
+  constructor(protected menuItemsService: MenuItemsService, protected cartItemsService:CartItemsService) {
     this.menuItem = {
       id: 0,
       name: '',
@@ -20,17 +24,6 @@ export class MenuItemComponent implements OnInit {
   ngOnInit(): void {
   }
   onMinusClick(event: any) {
-
-    // const item_quant = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
-    // if (Number(item_quant.value) <= 1) {
-    //   item_quant.value = "1";
-    //   console.log('Cannot use negative values');
-    //   return;
-    // } else {
-    //   item_quant.value = String(Number(item_quant.value) - 1);
-    //   console.log(item_quant.value);
-    // }
-
     const item_quant = this.getItemQuant();
     if (Number(item_quant.value) <= 1) {
       item_quant.value = "1";
@@ -38,20 +31,23 @@ export class MenuItemComponent implements OnInit {
       return;
     } else {
       item_quant.value = String(Number(item_quant.value) - 1);
-      // console.log(item_quant.value);
     }
   }
   onPlusClick(event: any) {
     // console.log(this.menuItem);
-
-    // const item_quant = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
     const item_quant = this.getItemQuant();
     item_quant.value = String(Number(item_quant.value) + 1);
-    // console.log(item_quant.value);
   }
-
-  getItemQuant(){
+  getItemQuant() {
     const item_quant = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
     return (item_quant);
   }
+
+  // on click on Add button
+  onAddToCart(event:any){
+    console.log(this.menuItem);
+    this.cartItemsService.addToCart(this.menuItem);
+
+  }
+
 }

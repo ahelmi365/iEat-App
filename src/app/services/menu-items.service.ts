@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuItemService {
+export class MenuItemsService {
 
   private menuItems: menuItem[] = [];
   private menuItemsObs = new BehaviorSubject<menuItem[]>([]);

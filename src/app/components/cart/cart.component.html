@@ -1,7 +1,43 @@
+<div class="col-12 text-center">
+  <h3 class="fixed-position">Your Cart</h3>
+  <p>cart works!</p>
+</div>
 
-  <div class="col-12 text-center">
-    <h3 class="fixed-position">Your Cart</h3>
-    <p>cart works!</p>
+
+  <div class="card menu_item menu_items row" *ngFor="let menuItem of selectedMenuItems">
+    <div class="card-body">
+      <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
+      <div class="item_details">
+        <div>
+          <h6 class="card-title">{{menuItem.name}}</h6>
+
+        </div>
+        <div class="item_price">${{menuItem.price}}</div>
+
+      </div>
+      <div class="item_desc">
+        <p class="card-text item_description">{{menuItem.description}}</p>
+      </div>
+      <div class="order_menu_item">
+        <div class="plus-minus-item">
+
+          <div class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+            <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
+          </div>
+          <div class="item_quant input-group input-group-sm">
+            <input type="text" name="" id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center"
+              readonly>
+          </div>
+          <div class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+            <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
+          </div>
+
+        </div>
+        <div class="add-item_menu">
+          <button class="btn btn-success btn-sm">Add</button>
+        </div>
+      </div>
+
+    </div>
   </div>
-
 

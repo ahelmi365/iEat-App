@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { menuItem } from 'src/app/models/menu_items_model';
+import { CartItemsService } from 'src/app/services/cart-items.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+   selectedMenuItems:menuItem[]= [];
 
-  constructor() { }
+  constructor(protected cartItemsServic: CartItemsService) { }
 
   ngOnInit(): void {
-  }
+    this.cartItemsServic.getcartDataList().subscribe((menuItem)=>{
+      this.selectedMenuItems = menuItem;
+      console.log(this.selectedMenuItems );
+    })
 
+
+  }
 }

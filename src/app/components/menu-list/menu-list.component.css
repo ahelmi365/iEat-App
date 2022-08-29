@@ -77,8 +77,9 @@ all_items{
 
 .your_cart {
   position: sticky;
-  height: calc(100vh - 222px);
+  height: calc(100vh - 145px);
   right: 0;
   top: 90px;
   min-width: 135px;
+  overflow-y: scroll;
 }

@@ -17,13 +17,16 @@
       <div class="order_menu_item">
         <div class="plus-minus-item">
 
-          <div (click)="onMinusClick($event)" class="fa-minus-item">
-            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+          <div (click)="onMinusClick($event)" class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+            <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
           </div>
           <div class="item_quant input-group input-group-sm">
-            <input [value]="menuItemService.itemQuanitity" type="text" name="" id="" class="form-control form-input small text-center">
+            <input disabled [value]="menuItemService.itemQuanitity" type="text" name="" id="item_quant_{{menuItem.id}}"
+              class="form-control form-input small text-center" readonly>
           </div>
-          <div (click)="onPlusClick($event)" class="fa-plus-item"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+          <div (click)="onPlusClick($event)" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+            <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
+          </div>
 
         </div>
         <div class="add-item_menu">

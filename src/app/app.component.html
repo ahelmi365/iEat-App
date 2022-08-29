@@ -1,10 +1,24 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet>
 <app-nav-bar></app-nav-bar>
 <div class="my-container">
   <div class="items-list-and-filter">
     <app-menu-filtering class=" app-menu-filtering "></app-menu-filtering>
     <div class="app-menu-list">
       <app-menu-list></app-menu-list>
+    </div>
+  </div>
+</div> -->
+
+
+<router-outlet></router-outlet>
+<app-nav-bar></app-nav-bar>
+<div class="my-container">
+  <div class="row">
+    <div class="items-list-and-filter row">
+      <app-menu-filtering class=" app-menu-filtering col-2"></app-menu-filtering>
+      <div class="app-menu-list col-10">
+        <app-menu-list></app-menu-list>
+      </div>
     </div>
   </div>
 </div>

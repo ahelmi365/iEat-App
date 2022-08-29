@@ -10,7 +10,9 @@
   margin-bottom: 1rem;
 }
 
-
+.card-body .form-check-label{
+  font-size: .8rem;;
+}
 
 
 .filter-card_title {
@@ -41,7 +43,7 @@ aside.Layout-aside {
 }
 
 .filter_item_check {
-  flex-basis: 15%;
+  /* flex-basis: 15%; */
 }
 
 .card {

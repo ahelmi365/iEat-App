@@ -1,8 +1,20 @@
- .my-container{
+
+.my-container{
   margin: 80px  auto;
-  max-width: 1024px;
+  max-width: 94vw;
 }
 
 .items-list-and-filter{
-  margin: 0 2rem;
+  margin: 0 0.1rem;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+}
+
+
+.app-menu-filtering{
+  position: sticky;
+  top: 90px;
+  left: 0;
+  height: calc(100vh - 222px);
+  min-width: 115px;
 }

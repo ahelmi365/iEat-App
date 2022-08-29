@@ -14,4 +14,10 @@ body,
 
 body{
   background: url(./assets/images/body_background.png);
+  min-width: 470px;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0 auto;
 }
+
+

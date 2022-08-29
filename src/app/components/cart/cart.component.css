@@ -1,2 +1,26 @@
-@import "../menu-item/menu-item.component.css"
+@import "../menu-item/menu-item.component.css";
 
+
+.order_menu_item{
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.plus-minus-item{
+  margin-bottom: 1rem;
+}
+
+.card-img-top{
+  /* float: left; */
+  height: 70px;
+  width: 70px;
+  margin-right: 1rem;
+}
+.your-cart-container{
+  /* border: 1px solid red; */
+  padding: 0 .5rem;
+}
+
+.item_details{
+  flex-flow: wrap row;
+}

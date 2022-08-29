@@ -82,4 +82,5 @@ all_items{
   top: 90px;
   min-width: 135px;
   overflow-y: scroll;
+  padding-right: 2rem;
 }

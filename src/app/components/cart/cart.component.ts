@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { menuItem } from 'src/app/models/menu_items_model';
 import { CartItemsService } from 'src/app/services/cart-items.service';
 
@@ -10,9 +11,13 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 export class CartComponent implements OnInit {
    selectedMenuItems:menuItem[]= [];
 
+
+
+
   constructor(protected cartItemsServic: CartItemsService) { }
 
   ngOnInit(): void {
+
     this.cartItemsServic.getcartDataList().subscribe((menuItem)=>{
       this.selectedMenuItems = menuItem;
       console.log(this.selectedMenuItems );

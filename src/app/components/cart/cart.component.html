@@ -1,43 +1,98 @@
 <div class="col-12 text-center">
   <h3 class="fixed-position">Your Cart</h3>
-  <p>cart works!</p>
 </div>
 
+<!-- <div *ngIf="selectedMenuItems.length>0" class="card your-cart-container">
+  <div class="card-body">
+    <div class="card menu_item menu_items row" *ngFor="let menuItem of selectedMenuItems">
+      <div class="card-body col-12">
+        <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
+        <div class="item_details">
+          <div>
+            <h6 class="card-title">{{menuItem.name}}</h6>
 
-  <div class="card menu_item menu_items row" *ngFor="let menuItem of selectedMenuItems">
-    <div class="card-body">
-      <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
-      <div class="item_details">
-        <div>
-          <h6 class="card-title">{{menuItem.name}}</h6>
+          </div>
+          <div class="item_price">${{menuItem.price}}</div>
 
         </div>
-        <div class="item_price">${{menuItem.price}}</div>
-
-      </div>
-      <div class="item_desc">
+        <div class="item_desc">
         <p class="card-text item_description">{{menuItem.description}}</p>
       </div>
-      <div class="order_menu_item">
-        <div class="plus-minus-item">
+        <div class="order_menu_item">
+          <div class="plus-minus-item">
 
-          <div class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
-            <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
-          </div>
-          <div class="item_quant input-group input-group-sm">
-            <input type="text" name="" id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center"
-              readonly>
-          </div>
-          <div class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
-            <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
-          </div>
+            <div class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+              <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
+            </div>
+            <div class="item_quant input-group input-group-sm">
+              <input type="text" name="" id="item_quant_{{menuItem.id}}"
+                class="form-control form-input small text-center" readonly>
+            </div>
+            <div class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+              <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
+            </div>
 
+          </div>
+          <div class="add-item_menu">
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </div>
         </div>
-        <div class="add-item_menu">
-          <button class="btn btn-success btn-sm">Add</button>
-        </div>
+
       </div>
-
     </div>
   </div>
+</div> -->
 
+
+<div *ngIf="selectedMenuItems.length>0" class="card your-cart-container">
+  <div class="card-body">
+    <div class="card menu_item menu_items row" *ngFor="let menuItem of selectedMenuItems">
+      <div class="card-body col-12">
+
+        <div class="row item_details">
+
+          <div class="col-4"><img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap"></div>
+          <div class="col-5">
+            <div class="row">
+              <h6 class="card-title col-12">{{menuItem.name}}</h6>
+            </div>
+            <div class="row col-12">
+              <div class="item_desc">
+                <p class="card-text item_description">{{menuItem.description}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="item_price">${{menuItem.price}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="order_menu_item">
+            <div class="plus-minus-item">
+
+              <div class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+                <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
+              </div>
+              <div class="item_quant input-group input-group-sm">
+                <input type="text" name="" id="item_quant_{{menuItem.id}}"
+                  class="form-control form-input small text-center" readonly>
+              </div>
+              <div class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+                <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
+              </div>
+
+            </div>
+            <div class="add-item_menu">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

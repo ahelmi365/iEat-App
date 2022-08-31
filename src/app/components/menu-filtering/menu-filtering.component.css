@@ -30,7 +30,8 @@ aside.Layout-aside {
 
 
 .Layout-aside-content {
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+  padding: 7px;
 }
 
 

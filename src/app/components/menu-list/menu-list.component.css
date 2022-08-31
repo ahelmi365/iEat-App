@@ -74,7 +74,7 @@ all_items{
   justify-content: center;
 }
 
-
+/*
 .your_cart {
   position: sticky;
   height: calc(100vh - 145px);
@@ -83,4 +83,4 @@ all_items{
   min-width: 135px;
   overflow-y: scroll;
   padding-right: 2rem;
-}
+} */

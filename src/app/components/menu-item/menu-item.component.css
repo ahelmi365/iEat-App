@@ -1,8 +1,10 @@
 .menu_items {
   margin-bottom: 1rem;
-  ;
 }
+.item_details .card-title, .item_description{
+  font-family: 'Montserrat', sans-serif;
 
+}
 .menu_item:hover {
   border: 1px solid #0aad0a;
 }
@@ -82,3 +84,4 @@ button.btn.btn-success.btn-sm,
   height: 116px;
   margin-bottom: 0.5rem;
 }
+

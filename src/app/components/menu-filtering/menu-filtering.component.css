@@ -7,7 +7,7 @@
 }
 
 .card-title {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .card-body .form-check-label{
@@ -16,8 +16,8 @@
 
 
 .filter-card_title {
-  display: inline-block;
-  margin-right: 1rem;
+  /* display: inline-block; */
+  /* margin-right: 1rem; */
 }
 
 
@@ -43,43 +43,15 @@ aside.Layout-aside {
   justify-content: center;
 }
 
-.filter_item_check {
-  /* flex-basis: 15%; */
-}
+
 
 .card {
   padding: 0;
 }
-/*
-@media(max-width:991px) {
 
-  .filter-items {
-
-    order: 1;
+@media (max-width:475px) {
+  .filter-card_title {
+    text-align: right;
+    color: green;
   }
-
-  .your_cart {
-
-    flex-basis: 20%;
-  }
-
-  .all_items {
-    order: 3;
-    flex-basis: 75%;
-  }
-
-  .all_filter_item_check {
-    display: flex;
-    justify-content: center;
-  }
-
-  .filter_item_check {
-    flex-basis: 15%;
-  }
-
-  .card {
-    padding: 0;
-  }
-
-
-} */
+}

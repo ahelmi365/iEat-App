@@ -1,33 +1,6 @@
 /* @import "../menu-item/menu-item.component.css"; */
 
 
-.order_menu_item {
-  /* flex-wrap: wrap;
-justify-content: center; */
-}
-
-.plus-minus-item {
-  margin-bottom: 1rem;
-}
-
-.card-img-top {
-  /* float: left; */
-  /* height: 70px;
-  width: 70px; */
-  /* margin-right: 1rem; */
-}
-
-.your-cart-container {
-  /* border: 1px solid red; */
-  /* padding: 0 .5rem; */
-}
-
-/* .item_details{
-  flex-flow: wrap row;
-} */
-
-
-
 
 
 .cart-container {
@@ -35,19 +8,19 @@ justify-content: center; */
   margin: 0 auto;
 }
 
-.cart-main-page{
+.cart-main-page {
   font-size: 1.5rem;
   cursor: pointer;
   color: green;
 }
 
-.cart-main-page:hover{
+.cart-main-page:hover {
   font-size: 1.8rem;
-  color: #daa300;
+  /* color: #ffbe00; */
   transition: all .5s;
 }
 
-.fa-cart-arrow-down{
+.fa-cart-arrow-down {
   margin-right: .5rem;
 }
 
@@ -56,26 +29,27 @@ justify-content: center; */
   flex-direction: column;
   width: 100%;
 }
-.cart-sub-total{
+
+.cart-sub-total {
   text-align: center;
 }
-.cart-sub-total-buy-now button{
+
+.cart-sub-total-buy-now button {
   border-radius: 20px;
   padding: 1px 10px;
 }
+
 .cart-content-items {
-  /* width: 85%; */
   margin-top: unset;
-  /* margin-bottom: 12px; */
 }
 
 
 .cart-item-img-container {
   position: relative;
-  /* width: 100%; */
   width: 100px;
   height: 75px;
-  margin: 0 auto;
+  margin: 0 auto 3px auto;
+
 }
 
 .cart-item-img {
@@ -85,17 +59,20 @@ justify-content: center; */
   border-radius: 5px;
   object-fit: cover;
 }
-.cart-item-price{
+
+.cart-item-price {
   font-size: .7rem;
   text-align: center;
 }
-.order_menu_item{
-  margin-top: 1rem;
+
+.order_menu_item {
+  margin: 1rem 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   gap: 10%;
 }
+
 .plus-minus-item {
   display: flex;
   flex-flow: row wrap;
@@ -104,7 +81,7 @@ justify-content: center; */
   flex-basis: 50%;
 }
 
-.delet-item_menu{
+.delet-item_menu {
   flex-basis: 20%;
 }
 
@@ -124,8 +101,6 @@ justify-content: center; */
 .item-separator {
   border-bottom: solid 1px #ddd;
   width: auto;
-  /* margin: 0 ; */
-
 }
 
 .item-separator {
@@ -147,13 +122,19 @@ justify-content: center; */
   padding: 1rem;
 }
 
-.fa-minus-item{
+.fa-minus-item, .delet-item_menu {
   color: red;
 }
 
-.fa-plus-item{
+.fa-plus-item {
   color: green;
 }
-.delet-item_menu{
-  color: red;
+
+
+
+@media (max-width:475px) {
+   .cart-main-page{
+    text-align: left;
+  }
+
 }

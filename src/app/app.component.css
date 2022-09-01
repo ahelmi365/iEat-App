@@ -22,7 +22,20 @@
 
 .right {
   border-left: 1px solid #bbb;
-  scrollbar-width: 11px;
+}
+
+.right::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.right::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.right::-webkit-scrollbar-thumb {
+background-color: #bbb;
+/* outline: 1px solid slategrey; */
 }
 
 .middle-page {
@@ -75,18 +88,7 @@
   display: none;
 }
 
-/* .show-hide-left-right {
-  margin-top: 80px;
-  position: sticky;
-  top: 80px;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: white;
 
-} */
-
-.show-filter-icon {}
 
 .show-shopping-cart-icon {
   display: flex;
@@ -121,42 +123,17 @@
 }
 
 
-/*
-@media (max-width:475px) {
-
-  .right {
-    position: fixed;
-    transform: translate(calc(100vw - 45px));
-    z-index: 10000;
-    right: 0;
-  }
-
-
-
-
-} */
-
-
-
-/* #show-filter:checked + .show-cart-lable {
-  background-color: red;
-    } */
-
-
-
-/* end tst show hide sides */
-
 
 
 @media (max-width:550px) {
 
   .show-hide-left-right {
-    margin-top: 80px;
+    margin-top: 72px;
     position: sticky;
     top: 80px;
     left: 0;
     right: 0;
-    z-index: 3000;
+    z-index: 2;
     background-color: white;
     display: flex;
 
@@ -175,7 +152,7 @@
   .left {
     position: fixed;
     transform: translate(-90%);
-    z-index: 10000;
+    z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;
     border-radius: 5px;
@@ -184,42 +161,28 @@
 
   .showFilterAside {
     left: 0;
-    z-index: 20000;
-    width: 80%;
+    z-index: 2;
+    width: 72%;
     transform: translate(0);
     transition: all .5s;
 
   }
 
-  /* .left:hover {
-    left: 0;
-    z-index: 20000;
-    width: 50%;
-    transform: translate(0);
-    transition: all .5s;
-  } */
 
   .right {
     position: fixed;
     transform: translate(calc(100vw - 45px));
-    z-index: 10000;
+    z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;
     border-radius: 5px;
   }
 
-  /*
-  .right:hover {
-    right: 0;
-    z-index: 20000;
-    width: 50%;
-    transform: translate(0);
-    transition: all .5s;
-  } */
+
 
   .showCartAside {
     right: 0;
-    z-index: 20000;
+    z-index: 2;
     width: 80%;
     transform: translate(0);
     transition: all .5s;

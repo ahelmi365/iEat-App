@@ -9,6 +9,7 @@
 .card-title {
   margin-bottom: 1rem;
   color: green;
+  padding: .5rem;
 }
 
 .card-body .form-check-label{

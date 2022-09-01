@@ -1,6 +1,6 @@
 <div class="cart-container">
   <div class="cart-content">
-    <div class="cart-sub-total">
+    <div class="cart-sub-total" [class.box-shadow-below]="selectedMenuItems.length>0">
       <div class="cart-main-page">
         <i class="fa  fa-solid fa-cart-arrow-down"></i>
         <!-- <i class="fa fa-caret-right"></i> -->
@@ -9,9 +9,10 @@
       <span class="cart-sub-total-text">subtotal</span>
       <span class="cart-sub-total-value">$$$</span>
       <div class="cart-sub-total-buy-now"><button class="btn btn-warning btn-sm">Buy Now</button></div>
-      <div>
+      <!-- <div>
         <hr class="sub-total-separator" />
-      </div>
+        <hr class="sub-total-separator" />
+      </div> -->
     </div>
 
     <div class="cart-content-items card-item" *ngFor="let menuItem of selectedMenuItems">

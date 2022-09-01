@@ -1,22 +1,4 @@
 <router-outlet></router-outlet>
-<!-- <app-nav-bar></app-nav-bar>
-<div class="my-container main-columns ">
-  <div class="left">
-    <app-menu-filtering class=" app-menu-filtering"></app-menu-filtering>
-  </div>
-  <div class=" middle-page">
-
-    <div class="app-menu-list">
-      <app-menu-list></app-menu-list>
-    </div>
-  </div>
-  <div class="right your_cart">
-    <app-cart class="fixed-position"></app-cart>
-  </div>
-</div> -->
-
-
-
 <app-nav-bar></app-nav-bar>
 <div>
   <div class="row show-hide-left-right">
@@ -38,7 +20,7 @@
         <input (change)="showHideCart($event)"  type="checkbox" name="" id="show-cart">
         <label class="show-cart-lable" for="show-cart">
           <i class="fa  fa-solid fa-cart-arrow-down"></i>
-          <i class="fa fa-caret-right"></i>
+          <!-- <i class="fa fa-caret-right"></i> -->
         </label>
 
       </div>
@@ -56,7 +38,7 @@
       </div>
     </div>
     <div class="right your_cart" [class.showCartAside]="showCartAside">
-      <app-cart class="fixed-position"></app-cart>
+      <app-cart ></app-cart>
     </div>
   </div>
 </div>

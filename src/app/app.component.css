@@ -70,32 +70,157 @@
   }
 }
 
+/* test new show hide sides */
+.show-hide-left-right {
+  display: none;
+}
 
+/* .show-hide-left-right {
+  margin-top: 80px;
+  position: sticky;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+
+} */
+
+.show-filter-icon {}
+
+.show-shopping-cart-icon {
+  display: flex;
+  justify-content: flex-end;
+
+
+}
+
+.shopping-cart-icon {
+  margin-right: 2rem;
+
+}
+
+.filter-icon {
+  margin-left: 3.5rem;
+  /* cursor: pointer; */
+
+}
+
+.show-filter-lable,
+.show-cart-lable ,
+.show-menu{
+  cursor: pointer;
+  padding: .5rem;
+  font-size: 1.5rem;
+  color: green;
+}
+
+#show-cart,
+#show-filter {
+  display: none;
+}
+
+
+/*
 @media (max-width:475px) {
-  .left {
-    position: fixed;
-    transform: translate(-90%);
-    z-index: 10000;
-  }
-
-  .left:hover {
-    left: 0;
-    z-index: 20000;
-    width: 50%;
-    transform: translate(0);
-    transition: all .5s;
-  }
 
   .right {
     position: fixed;
     transform: translate(calc(100vw - 45px));
     z-index: 10000;
+    right: 0;
   }
 
-  .right:hover {
-    right:0;
+
+
+
+} */
+
+
+
+/* #show-filter:checked + .show-cart-lable {
+  background-color: red;
+    } */
+
+
+
+/* end tst show hide sides */
+
+
+
+@media (max-width:550px) {
+
+  .show-hide-left-right {
+    margin-top: 80px;
+    position: sticky;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 3000;
+    background-color: white;
+    display: flex;
+
+  }
+
+  .show-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-columns {
+    margin-top: 0px;
+  }
+
+  .left {
+    position: fixed;
+    transform: translate(-90%);
+    z-index: 10000;
+    margin-top: 52px;
+    border-top: 1px solid #bbb;
+    border-radius: 5px;
+  }
+
+
+  .showFilterAside {
+    left: 0;
+    z-index: 20000;
+    width: 80%;
+    transform: translate(0);
+    transition: all .5s;
+
+  }
+
+  /* .left:hover {
+    left: 0;
     z-index: 20000;
     width: 50%;
+    transform: translate(0);
+    transition: all .5s;
+  } */
+
+  .right {
+    position: fixed;
+    transform: translate(calc(100vw - 45px));
+    z-index: 10000;
+    margin-top: 52px;
+    border-top: 1px solid #bbb;
+    border-radius: 5px;
+  }
+
+  /*
+  .right:hover {
+    right: 0;
+    z-index: 20000;
+    width: 50%;
+    transform: translate(0);
+    transition: all .5s;
+  } */
+
+  .showCartAside {
+    right: 0;
+    z-index: 20000;
+    width: 80%;
     transform: translate(0);
     transition: all .5s;
   }

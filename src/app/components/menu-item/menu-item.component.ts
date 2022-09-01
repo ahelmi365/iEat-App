@@ -45,7 +45,7 @@ export class MenuItemComponent implements OnInit {
 
   // on click on Add button
   onAddToCart(event:any){
-    console.log(this.menuItem);
+    // console.log(this.menuItem);
     this.cartItemsService.addToCart(this.menuItem);
 
   }

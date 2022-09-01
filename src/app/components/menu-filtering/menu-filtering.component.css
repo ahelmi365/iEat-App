@@ -49,9 +49,9 @@ aside.Layout-aside {
   padding: 0;
 }
 
-@media (max-width:475px) {
+/* @media (max-width:475px) {
   .filter-card_title {
     text-align: right;
     color: green;
   }
-}
+} */

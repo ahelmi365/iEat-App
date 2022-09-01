@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
     this.cartItemsServic.getcartDataList().subscribe((menuItem)=>{
       this.selectedMenuItems = menuItem;
-      console.log(this.selectedMenuItems );
+      // console.log(this.selectedMenuItems );
     })
 
 

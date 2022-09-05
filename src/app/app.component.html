@@ -38,7 +38,17 @@
       </div>
     </div>
     <div class="right your_cart" [class.showCartAside]="showCartAside">
+      <div class="your-cart-container">
+        <div class="your-cart-container-icon">
+          <div class="shopping-cart-icon">
+            <input (change)="showHideCart($event)"  type="checkbox" name="" id="show-cart">
+            <label class="show-cart-lable" for="show-cart">
+              <i class="fa  fa-solid fa-cart-arrow-down"></i>
+            </label>
+          </div>
+        </div>
       <app-cart ></app-cart>
+    </div>
     </div>
   </div>
 </div>

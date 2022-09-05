@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { menuItem } from 'src/app/models/menu_items_model';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
@@ -19,6 +19,10 @@ export class MenuListComponent implements OnInit {
     this.menuItemSubscription = this.menuItemsService.getMenuItems().subscribe(res=>{
       this.menuItems = res;
     })
+  }
+
+  ngOnDestroy():void{
+    this.menuItemSubscription.unsubscribe();
   }
 
 }

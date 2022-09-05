@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { menuItem } from 'src/app/models/menu_items_model';
 import { CartItemsService } from 'src/app/services/cart-items.service';
@@ -9,7 +9,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-   selectedMenuItems:menuItem[]= [];
+  selectedMenuItems: menuItem[] = [];
 
 
 
@@ -18,11 +18,15 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.cartItemsServic.getcartDataList().subscribe((menuItem)=>{
+    this.cartItemsServic.getcartDataList().subscribe((menuItem) => {
       this.selectedMenuItems = menuItem;
       // console.log(this.selectedMenuItems );
     })
-
-
   }
+
+  ngOnDestroy(){
+    // this.
+  }
+
+
 }

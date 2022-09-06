@@ -4,6 +4,7 @@ export class menuItem{
   price:number;
   url:string;
   description:string;
+  itemQuantity:Number;
 
   constructor(){
       this.id = 0;
@@ -11,5 +12,6 @@ export class menuItem{
       this.price=0;
       this.url="";
       this.description="";
+      this.itemQuantity=0;
   }
 }

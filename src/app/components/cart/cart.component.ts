@@ -10,6 +10,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 })
 export class CartComponent implements OnInit {
   selectedMenuItems: menuItem[] = [];
+  cardTotalUSD=0;
 
 
 
@@ -22,7 +23,9 @@ export class CartComponent implements OnInit {
       this.selectedMenuItems = menuItem;
       // console.log(this.selectedMenuItems );
     })
+
   }
+
 
   ngOnDestroy(){
     // this.

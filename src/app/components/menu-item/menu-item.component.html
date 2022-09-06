@@ -21,7 +21,7 @@
             <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
           </div>
           <div class="item_quant input-group input-group-sm">
-            <input disabled  [value]="menuItemsService.itemQuanitity" type="text" name="" id="item_quant_{{menuItem.id}}"
+            <input #itemQuantity disabled  [value]="menuItemsService.itemQuanitity" type="text" name="" id="item_quant_{{menuItem.id}}"
               class="form-control form-input small text-center" readonly>
           </div>
           <div (click)="onPlusClick($event)" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
@@ -30,7 +30,7 @@
 
         </div>
         <div class="add-item_menu">
-          <button (click)="onAddToCart($event)" class="btn btn-success btn-sm">Add</button>
+          <button (click)="onAddToCart($event, itemQuantity.value)" class="btn btn-success btn-sm">Add</button>
         </div>
       </div>
 

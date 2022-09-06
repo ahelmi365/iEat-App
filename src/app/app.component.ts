@@ -14,7 +14,7 @@ export class AppComponent {
 
   showHideFilter(evt: any) {
     this.showFilterAside = evt.target.checked;
-    console.log(evt.target.checked);
+    // console.log(evt.target.checked);
     if (this.showFilterAside) {
       this.showCartAside = false;
       const chekcCartInput = <HTMLInputElement>document.getElementById('show-cart');

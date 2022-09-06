@@ -18,7 +18,8 @@ export class MenuItemComponent implements OnInit {
       name: '',
       price: 0,
       url: '',
-      description: ''
+      description: '',
+      itemQuantity:0
     }
   }
   ngOnInit(): void {
@@ -35,19 +36,21 @@ export class MenuItemComponent implements OnInit {
   }
   onPlusClick(event: any) {
     // console.log(this.menuItem);
-    const item_quant = this.getItemQuant();
-    item_quant.value = String(Number(item_quant.value) + 1);
+    const item_quant_input = this.getItemQuant();
+    item_quant_input.value = String(Number(item_quant_input.value) + 1);
   }
   getItemQuant() {
-    const item_quant = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
-    return (item_quant);
+    const item_quant_input = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
+    return (item_quant_input);
   }
 
   // on click on Add button
-  onAddToCart(event:any){
+  onAddToCart(event:any, itemQuantity:string){
     // console.log(this.menuItem);
+    this.menuItem.itemQuantity = Number(itemQuantity);
     this.cartItemsService.addToCart(this.menuItem);
 
   }
+
 
 }

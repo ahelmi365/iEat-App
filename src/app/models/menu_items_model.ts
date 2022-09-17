@@ -5,6 +5,7 @@ export class menuItem{
   url:string;
   description:string;
   itemQuantity:Number;
+  category:[];
 
   constructor(){
       this.id = 0;
@@ -13,5 +14,7 @@ export class menuItem{
       this.url="";
       this.description="";
       this.itemQuantity=0;
+      this.category=[];
+
   }
 }

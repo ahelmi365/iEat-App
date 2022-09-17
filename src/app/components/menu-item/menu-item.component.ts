@@ -19,25 +19,28 @@ export class MenuItemComponent implements OnInit {
       price: 0,
       url: '',
       description: '',
-      itemQuantity:0
+      itemQuantity:0,
+      category:[]
     }
   }
   ngOnInit(): void {
+    // console.log(this.menuItem.category);
+
   }
   onMinusClick(event: any) {
     const item_quant = this.getItemQuant();
-    if (Number(item_quant.value) <= 1) {
-      item_quant.value = "1";
+    if ((item_quant.valueAsNumber) <= 1) {
+      item_quant.valueAsNumber = 1;
       // console.log('Cannot use negative values');
       return;
     } else {
-      item_quant.value = String(Number(item_quant.value) - 1);
+      item_quant.valueAsNumber = item_quant.valueAsNumber - 1;
     }
   }
   onPlusClick(event: any) {
     // console.log(this.menuItem);
     const item_quant_input = this.getItemQuant();
-    item_quant_input.value = String(Number(item_quant_input.value) + 1);
+    item_quant_input.valueAsNumber = item_quant_input.valueAsNumber + 1;
   }
   getItemQuant() {
     const item_quant_input = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
@@ -45,9 +48,9 @@ export class MenuItemComponent implements OnInit {
   }
 
   // on click on Add button
-  onAddToCart(event:any, itemQuantity:string){
+  onAddToCart(event:any, itemQuantity:Number){
     // console.log(this.menuItem);
-    this.menuItem.itemQuantity = Number(itemQuantity);
+    this.menuItem.itemQuantity = itemQuantity;
     this.cartItemsService.addToCart(this.menuItem);
 
   }

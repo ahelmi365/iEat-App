@@ -164,7 +164,7 @@ background-color: #bbb;
     position: fixed;
     transform: translate(-90%);
     /* transform: translate(calc(-100vw + 60px)); */
-    transition: all .5s;
+    /* transition: all .5s; */
     z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;
@@ -185,7 +185,7 @@ background-color: #bbb;
   .right {
     position: fixed;
     transform: translate(calc(100vw - 60px));
-    transition: all .5s;
+    /* transition: all .5s; */
     z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;

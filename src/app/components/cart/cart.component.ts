@@ -22,6 +22,9 @@ export class CartComponent implements OnInit {
     this.cartItemsServic.getcartDataList().subscribe((menuItem) => {
       this.selectedMenuItems = menuItem;
       // console.log(this.selectedMenuItems );
+    });
+    this.cartItemsServic.getcartTotalUSD().subscribe(totalCart=>{
+      this.cardTotalUSD = Number(totalCart);
     })
 
   }

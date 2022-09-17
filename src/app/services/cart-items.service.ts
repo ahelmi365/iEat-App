@@ -20,14 +20,14 @@ export class CartItemsService {
     const itemFound: boolean = this.cartDataList.some(
       (el: any) => el.id === menuItem.id);
     if (itemFound) {
-      this.calculateCardTotalUSD();
+      this.calculateCartTotalUSD();
       return
     } else {
       this.cartDataList.unshift(menuItem);
       this.cardDataListObs.next(this.cartDataList);
 
     }
-    this.calculateCardTotalUSD();
+    this.calculateCartTotalUSD();
   }
 
   getcartDataList() {
@@ -35,13 +35,17 @@ export class CartItemsService {
 
     return this.cardDataListObs.asObservable();
   }
+  getcartTotalUSD(){
+    return this.cardTotalUSDObs.asObservable();
+  }
 
-  calculateCardTotalUSD(){
+  calculateCartTotalUSD(){
     this.cardTotalUSD=0;
     for (const item of this.cartDataList) {
       this.cardTotalUSD+= item.price * Number(item.itemQuantity);
-      this.cardTotalUSDObs.next(String(this.cardTotalUSD));
     }
-    console.log(this.cardTotalUSD);
+    this.cardTotalUSDObs.next(String(this.cardTotalUSD.toFixed(2)));
+    console.log(this.cardTotalUSD.toFixed(2));
+
   }
 }

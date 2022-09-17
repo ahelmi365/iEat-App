@@ -14,7 +14,9 @@
       </div>
 
       <span class="cart-sub-total-text">subtotal</span>
-      <span class="cart-sub-total-value">$ {{cardTotalUSD}}</span>
+      <span class="cart-sub-total-value"><strong><span *ngIf="cardTotalUSD >0 else zeroCartTotal"> {{cardTotalUSD | currency:'USD'}} </span></strong></span>
+      <ng-template  #zeroCartTotal>$0</ng-template>
+
       <div class="cart-sub-total-buy-now"><button class="btn btn-warning btn-sm">Buy Now</button></div>
       <!-- <div>
         <hr class="sub-total-separator" />

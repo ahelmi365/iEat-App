@@ -11,6 +11,7 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { MenuFilteringComponent } from './components/menu-filtering/menu-filtering.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

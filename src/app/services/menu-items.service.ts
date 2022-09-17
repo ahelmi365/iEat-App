@@ -13,18 +13,28 @@ export class MenuItemsService {
   itemQuanitity: number = 1;
 
   constructor(private http: HttpClient) { }
+
   getMenuItems(): Observable<menuItem[]> {
-
     return this.http.get<menuItem[]>('assets/data/menu_items.json');
-
   }
 
-  descreaseItemAmount(){
+  descreaseItemAmount() {
     this.itemQuanitity--;
-
   }
 
-  indreaseItemAmount(){
+  indreaseItemAmount() {
     this.itemQuanitity++;
+  }
+
+  filterMenuItems(filterBy: any) {
+    // const filteredMenuItems = this.menuItems.filter(item => { return item.category.includes(filterBy) })
+    // this.menuItems = filteredMenuItems;
+    // this.menuItemsObs.next(this.menuItems);
+    console.log(filterBy);
+
+    this.menuItems = [];
+    this.menuItemsObs.next(this.menuItems);
+    return this.menuItemsObs.asObservable();
+
   }
 }

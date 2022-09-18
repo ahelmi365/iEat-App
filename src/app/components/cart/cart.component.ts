@@ -10,7 +10,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 })
 export class CartComponent implements OnInit {
   selectedMenuItems: menuItem[] = [];
-  cardTotalUSD=0;
+  cardTotalUSD = 0;
 
 
 
@@ -23,14 +23,19 @@ export class CartComponent implements OnInit {
       this.selectedMenuItems = menuItem;
       // console.log(this.selectedMenuItems );
     });
-    this.cartItemsServic.getcartTotalUSD().subscribe(totalCart=>{
+    this.cartItemsServic.getcartTotalUSD().subscribe(totalCart => {
       this.cardTotalUSD = Number(totalCart);
     })
 
   }
 
+  onDeleteCartItem(menuItem: any) {
+    // console.log(menuItem);
+    this.cartItemsServic.DeleteCartItem(menuItem);
 
-  ngOnDestroy(){
+  }
+
+  ngOnDestroy() {
     // this.
   }
 

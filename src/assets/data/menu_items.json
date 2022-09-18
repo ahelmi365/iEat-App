@@ -18,7 +18,7 @@
   {
     "id": 3,
     "name": "Beans & Eggs",
-    "price": 4.99,
+    "price": 0.99,
     "url": "assets/images/food/beans-eggs.png",
     "description": "Beans plate with Eggs, Tehyna and limon",
     "category":["breakfast"]

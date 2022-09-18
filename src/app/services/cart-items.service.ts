@@ -8,7 +8,9 @@ import { menuItem } from '../models/menu_items_model';
 export class CartItemsService {
   private cartDataList: menuItem[] = [];
   private cartDataListObs = new BehaviorSubject<menuItem[]>([]);
-  private cartNumberItems = 0;
+
+  private cartItemsNumber = 0;
+  private cartItemsNumberObs = new BehaviorSubject(this.cartItemsNumber);
 
   cardTotalUSD=0;
   private cardTotalUSDObs = new BehaviorSubject(observable);
@@ -21,10 +23,7 @@ export class CartItemsService {
     const itemFound: boolean = this.cartDataList.some((el: any) => el.id === menuItem.id);
 
     if (itemFound) {
-      console.log(this.cartDataList);
       this.calculateCartTotalUSD();
-      console.log(this.cartDataList[0].itemQuantity);
-
       return
     } else {
       this.cartDataList.unshift(menuItem);
@@ -32,6 +31,9 @@ export class CartItemsService {
 
     }
     this.calculateCartTotalUSD();
+
+    this.cartItemsNumber+=1;
+    this.cartItemsNumberObs.next(this.cartItemsNumber);
   }
 
   getcartDataList() {
@@ -39,6 +41,9 @@ export class CartItemsService {
   }
   getcartTotalUSD(){
     return this.cardTotalUSDObs.asObservable();
+  }
+  getCartItemsNumber(){
+    return this.cartItemsNumberObs.asObservable();
   }
 
   calculateCartTotalUSD(){
@@ -61,6 +66,9 @@ export class CartItemsService {
     this.cartDataList.splice(itemIndexToRemove,1);
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
+
+    this.cartItemsNumber-=1;
+    this.cartItemsNumberObs.next(this.cartItemsNumber);
 
   }
 }

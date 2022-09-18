@@ -10,7 +10,8 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 })
 export class CartComponent implements OnInit {
   selectedMenuItems: menuItem[] = [];
-  cardTotalUSD = 0;
+  cartTotalUSD = 0;
+  cartItemsNumber=0;
 
 
 
@@ -24,7 +25,11 @@ export class CartComponent implements OnInit {
       // console.log(this.selectedMenuItems );
     });
     this.cartItemsServic.getcartTotalUSD().subscribe(totalCart => {
-      this.cardTotalUSD = Number(totalCart);
+      this.cartTotalUSD = Number(totalCart);
+    })
+
+    this.cartItemsServic.getCartItemsNumber().subscribe(cartItemnumber=>{
+      this.cartItemsNumber = cartItemnumber;
     })
 
   }

@@ -29,6 +29,20 @@
   flex-direction: column;
   width: 100%;
 }
+.cartItemsNumber{
+  color: red;
+  /* border: red solid 1px; */
+  padding: 4px;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  font-size: .9rem;
+  text-align: center;
+  line-height: 1;
+
+  background-color: yellow;
+}
 
 .cart-sub-total {
   text-align: center;

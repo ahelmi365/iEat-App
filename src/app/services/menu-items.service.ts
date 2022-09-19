@@ -27,14 +27,14 @@ export class MenuItemsService {
   }
 
   filterMenuItems(filterBy: any) {
-    // const filteredMenuItems = this.menuItems.filter(item => { return item.category.includes(filterBy) })
+
+
+    // const filteredMenuItems = this.menuItems.filter(item => { return item.category.includes(String(filterBy)) })
     // this.menuItems = filteredMenuItems;
-    // this.menuItemsObs.next(this.menuItems);
+    this.menuItemsObs.next(this.menuItems);
     console.log(filterBy);
 
     this.menuItems = [];
     this.menuItemsObs.next(this.menuItems);
-    return this.menuItemsObs.asObservable();
-
   }
 }

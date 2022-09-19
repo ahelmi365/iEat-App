@@ -9,7 +9,8 @@ import { elementAt } from 'rxjs';
   styleUrls: ['./menu-filtering.component.css']
 })
 export class MenuFilteringComponent implements OnInit {
-  filterItems = ['all', 'breakfast', 'lunch', 'soup', 'drinks', 'desserts']
+  filterItems = ['all', 'breakfast', 'lunch', 'soup', 'drinks', 'desserts'];
+  itemChecked:boolean=true;
 
   filterForm = new FormGroup({
     all: new FormControl(''),
@@ -28,6 +29,15 @@ export class MenuFilteringComponent implements OnInit {
 
   onFilterChange(evt: any) {
     // console.log(evt.target.checked);
+
+    // for (const key in this.menuItemsService.) {
+    //     let itemCat: string[] = res[key].category;
+    //     console.log(itemCat.includes('breakfast'));
+    //     if (itemCat.includes('lunch')) {
+    //       this.menuItems.push(res[key]);
+    //     }
+    //   }
+
     this.menuItemsService.filterMenuItems(String(evt.target.id));
 
     if (evt.target.id == 'all' && evt.target.checked) {

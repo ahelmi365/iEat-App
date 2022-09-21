@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartItemsService } from './services/cart-items.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,16 @@ export class AppComponent {
   title = 'iEat';
   showFilterAside: boolean = false;
   showCartAside: boolean = false;
+  cartItemsNumber = 0;
 
+  constructor(protected cartItemsServic: CartItemsService) { }
 
+  ngOnInit(): void {
+    this.cartItemsServic.getCartItemsNumber().subscribe(cartItemnumber => {
+      this.cartItemsNumber = cartItemnumber;
+    })
+
+  }
 
   showHideFilter(evt: any) {
     this.showFilterAside = evt.target.checked;
@@ -38,11 +47,11 @@ export class AppComponent {
 
     if (chekcCartInput.checked) {
       chekcCartInput.checked = false;
-      this.showCartAside =false;
+      this.showCartAside = false;
     }
     if (chekcFilterInput.checked) {
       chekcFilterInput.checked = false;
-      this.showFilterAside=false;
+      this.showFilterAside = false;
     }
 
     const filterAside = <HTMLDivElement>document.querySelector('.left');

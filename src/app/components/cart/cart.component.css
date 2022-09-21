@@ -178,7 +178,9 @@ input[type='number']::-webkit-outer-spin-button {
 @media (max-width:550px) {
   .cart-content {
     /* width: 60%; */
-    margin: auto;
+    /* margin: auto; */
+    margin-bottom: 4rem;
+
   }
 
 }

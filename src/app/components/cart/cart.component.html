@@ -33,7 +33,6 @@
           <div class="row">
             <div class="order_menu_item">
               <div class="plus-minus-item">
-
                 <div
                   (click)="onMinusClick('cart_item_quant_'+menuItem.id); onUpdateItemQuantity(menuItem.id, itemNewQuantity.valueAsNumber);"
                   [ngClass]="{'disableMinus': menuItem.itemQuantity==1}"
@@ -55,7 +54,6 @@
               </div>
               <div (click)="onDeleteCartItem(menuItem)" class="delet-item_menu text-center">
                 <i class="fa fa-solid fa-trash"></i>
-                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
               </div>
 
             </div>

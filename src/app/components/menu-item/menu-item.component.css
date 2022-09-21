@@ -9,43 +9,6 @@
   border: 1px solid #0aad0a;
 }
 
-.order_menu_item {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  gap: 10%;
-  margin-top: 1rem;
-}
-
-.plus-minus-item {
-  display: flex;
-  gap: 5%;
-  flex-basis: 60%;
-}
-
-.add-item_menu {
-  flex-basis: 20%;
-}
-
-.fa-plus-item {
-  color: green;
-}
-
-.fa-minus-item {
-  color: red;
-}
-
-.fa-minus-item,
-.fa-plus-item {
-  font-size: 1.25rem;
-  align-items: center;
-  cursor: pointer;
-}
-
-.item_quant {
-  width: 50px;
-}
-
 .item_details {
   display: flex;
   justify-content: space-between;

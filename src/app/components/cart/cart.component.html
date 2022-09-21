@@ -3,8 +3,8 @@
     <div class="cart-sub-total" [class.box-shadow-below]="selectedMenuItems.length>0">
       <div class="cart-main-page">
 
-        <svg width="30" height="30" class="svg-inline--fa fa-shopping-cart fa-w-18 header-icons" aria-hidden="true" data-prefix="fa"
-          data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+        <svg width="30" height="30" class="svg-inline--fa fa-shopping-cart fa-w-18 header-icons" aria-hidden="true"
+          data-prefix="fa" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
           data-fa-i2svg="">
           <path fill="currentColor"
             d="M551.991 64H129.28l-8.329-44.423C118.822 8.226 108.911 0 97.362 0H12C5.373 0 0 5.373 0 12v8c0 6.627 5.373 12 12 12h78.72l69.927 372.946C150.305 416.314 144 431.42 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-17.993-7.435-34.24-19.388-45.868C506.022 391.891 496.76 384 485.328 384H189.28l-12-64h331.381c11.368 0 21.177-7.976 23.496-19.105l43.331-208C578.592 77.991 567.215 64 551.991 64zM240 448c0 17.645-14.355 32-32 32s-32-14.355-32-32 14.355-32 32-32 32 14.355 32 32zm224 32c-17.645 0-32-14.355-32-32s14.355-32 32-32 32 14.355 32 32-14.355 32-32 32zm38.156-192H171.28l-36-192h406.876l-40 192z">
@@ -14,8 +14,9 @@
       </div>
 
       <span class="cart-sub-total-text">subtotal</span>
-      <span class="cart-sub-total-value"><strong><span *ngIf="cartTotalUSD >0 else zeroCartTotal"> {{cartTotalUSD | currency:'USD'}} </span></strong></span>
-      <ng-template  #zeroCartTotal>$0</ng-template>
+      <span class="cart-sub-total-value"><strong><span *ngIf="cartTotalUSD >0 else zeroCartTotal"> {{cartTotalUSD |
+            currency:'USD'}} </span></strong></span>
+      <ng-template #zeroCartTotal>$0</ng-template>
 
       <div class="cart-sub-total-buy-now"><button class="btn btn-warning btn-sm">Buy Now</button></div>
 
@@ -33,14 +34,21 @@
             <div class="order_menu_item">
               <div class="plus-minus-item">
 
-                <div class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+                <div
+                  (click)="onMinusClick('cart_item_quant_'+menuItem.id); onUpdateItemQuantity(menuItem.id, itemNewQuantity.valueAsNumber);"
+                  [ngClass]="{'disableMinus': menuItem.itemQuantity==1}"
+                  class="fa-minus-item"
+                  id="cart_div_minus_item_{{menuItem.id}}">
                   <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
                 </div>
                 <div class="item_quant input-group input-group-sm">
-                  <input type="text" [value]="menuItem.itemQuantity" name="" id="item_quant_{{menuItem.id}}"
-                    class="form-control form-input small text-center" readonly>
+                  <label for="cart_item_quant_{{menuItem.id}}" hidden>Number of items of {{menuItem.name}}</label>
+                  <input #itemNewQuantity type="number" [value]="menuItem.itemQuantity" name="cart_item_quant_{{menuItem.id}}"
+                    id="cart_item_quant_{{menuItem.id}}" class="form-control form-input small text-center" disabled readonly>
                 </div>
-                <div class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+                <div
+                  (click)="onPlusClick('cart_item_quant_'+menuItem.id); onUpdateItemQuantity(menuItem.id, itemNewQuantity.valueAsNumber);"
+                  class="fa-plus-item" id="cart_div_plus_item_{{menuItem.id}}">
                   <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
                 </div>
 

@@ -1,7 +1,7 @@
 <div class="menu_items">
   <div class="card menu_item">
 
-    <div class="card-body" >
+    <div class="card-body">
       <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
       <div class="item_details">
         <div>
@@ -14,15 +14,17 @@
       <div class="item_desc">
         <p class="card-text item_description">{{menuItem.description}}</p>
       </div>
-      <div class="order_menu_item">
+      <app-plus-minus-item [menuItem]="menuItem"></app-plus-minus-item>
+
+      <!-- <div class="order_menu_item">
         <div class="plus-minus-item">
 
           <div (click)="onMinusClick($event)" class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
             <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
           </div>
           <div class="item_quant input-group input-group-sm">
-            <input #itemQuantity disabled  [value]="menuItemsService.itemQuanitity" type="number" name="" id="item_quant_{{menuItem.id}}"
-              class="form-control form-input small text-center" readonly>
+            <input #itemQuantity disabled [value]="menuItemsService.itemQuanitity" type="number" name=""
+              id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center" readonly>
           </div>
           <div (click)="onPlusClick($event)" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
             <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
@@ -32,11 +34,9 @@
         <div class="add-item_menu">
           <button (click)="onAddToCart($event, itemQuantity.valueAsNumber)" class="btn btn-success btn-sm">Add</button>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
 
 </div>
-
-

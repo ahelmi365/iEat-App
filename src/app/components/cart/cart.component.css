@@ -89,14 +89,14 @@ hr {
 .order_menu_item {
   margin: 1rem 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   gap: 10%;
 }
 
 .plus-minus-item {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
   gap: 5%;
   flex-basis: 50%;
@@ -112,9 +112,26 @@ hr {
   cursor: pointer;
 }
 
+.disableMinus{
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .item_quant {
   flex-basis: 40%;
+
+}
+.item_quant input {
+  padding: 0;
+  text-align: center;
+  width:45px;
+
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 

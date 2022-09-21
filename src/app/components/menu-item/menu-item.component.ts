@@ -27,33 +27,33 @@ export class MenuItemComponent implements OnInit {
     // console.log(this.menuItem.category);
 
   }
-  onMinusClick(event: any) {
-    const item_quant = this.getItemQuant();
-    if ((item_quant.valueAsNumber) <= 1) {
-      item_quant.valueAsNumber = 1;
-      // console.log('Cannot use negative values');
-      return;
-    } else {
-      item_quant.valueAsNumber = item_quant.valueAsNumber - 1;
-    }
-  }
-  onPlusClick(event: any) {
-    // console.log(this.menuItem);
-    const item_quant_input = this.getItemQuant();
-    item_quant_input.valueAsNumber = item_quant_input.valueAsNumber + 1;
-  }
-  getItemQuant() {
-    const item_quant_input = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
-    return (item_quant_input);
-  }
+  // onMinusClick(event: any) {
+  //   const item_quant = this.getItemQuant();
+  //   if ((item_quant.valueAsNumber) <= 1) {
+  //     item_quant.valueAsNumber = 1;
+  //     // console.log('Cannot use negative values');
+  //     return;
+  //   } else {
+  //     item_quant.valueAsNumber = item_quant.valueAsNumber - 1;
+  //   }
+  // }
+  // onPlusClick(event: any) {
+  //   // console.log(this.menuItem);
+  //   const item_quant_input = this.getItemQuant();
+  //   item_quant_input.valueAsNumber = item_quant_input.valueAsNumber + 1;
+  // }
+  // getItemQuant() {
+  //   const item_quant_input = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
+  //   return (item_quant_input);
+  // }
 
-  // on click on Add button
-  onAddToCart(event:any, itemQuantity:Number){
-    // console.log(this.menuItem);
-    this.menuItem.itemQuantity = itemQuantity;
-    this.cartItemsService.addToCart(this.menuItem);
+  // // on click on Add button
+  // onAddToCart(event:any, itemQuantity:Number){
+  //   // console.log(this.menuItem);
+  //   this.menuItem.itemQuantity = itemQuantity;
+  //   this.cartItemsService.addToCart(this.menuItem);
 
-  }
+  // }
 
 
 }

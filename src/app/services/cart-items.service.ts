@@ -12,7 +12,7 @@ export class CartItemsService {
   private cartItemsNumber = 0;
   private cartItemsNumberObs = new BehaviorSubject(this.cartItemsNumber);
 
-  cardTotalUSD=0;
+  cardTotalUSD = 0;
   private cardTotalUSDObs = new BehaviorSubject(observable);
 
 
@@ -32,43 +32,49 @@ export class CartItemsService {
     }
     this.calculateCartTotalUSD();
 
-    this.cartItemsNumber+=1;
+    this.cartItemsNumber += 1;
     this.cartItemsNumberObs.next(this.cartItemsNumber);
   }
 
   getcartDataList() {
     return this.cartDataListObs.asObservable();
   }
-  getcartTotalUSD(){
+  getcartTotalUSD() {
     return this.cardTotalUSDObs.asObservable();
   }
-  getCartItemsNumber(){
+  getCartItemsNumber() {
     return this.cartItemsNumberObs.asObservable();
   }
 
-  calculateCartTotalUSD(){
-    this.cardTotalUSD=0;
-    // using for loop
-    // for (const item of this.cartDataList) {
-    //   this.cardTotalUSD+= item.price * Number(item.itemQuantity);
-    // }
+  calculateCartTotalUSD() {
+    this.cardTotalUSD = 0;
 
-    // using reduce high order function
-    this.cardTotalUSD = this.cartDataList.reduce((prev,curr)=> {return prev + curr.price *  Number(curr.itemQuantity)},0)
+    // using reduce high order function (HOF)
+    this.cardTotalUSD = this.cartDataList.reduce((prev, curr) => { return prev + curr.price * Number(curr.itemQuantity) }, 0)
     this.cardTotalUSDObs.next(String(this.cardTotalUSD.toFixed(2)));
-
-    // console.log(this.cardTotalUSD.toFixed(2));
 
   }
 
-  DeleteCartItem(menuItem:any){
-  const itemIndexToRemove = this.cartDataList.findIndex(item=>item.id === menuItem.id)
-    this.cartDataList.splice(itemIndexToRemove,1);
+  DeleteCartItem(menuItem: any) {
+    const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItem.id)
+    this.cartDataList.splice(itemIndexToRemove, 1);
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
 
-    this.cartItemsNumber-=1;
+    this.cartItemsNumber -= 1;
     this.cartItemsNumberObs.next(this.cartItemsNumber);
 
+  }
+
+
+  updateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
+    const indexOfItem = this.cartDataList.findIndex(item => item.id === menuItemId);
+    this.cartDataList.forEach(item => {
+      if (item.id == menuItemId) {
+        item.itemQuantity = itemNewQuantity;
+      }
+    })
+    this.cartDataListObs.next(this.cartDataList);
+    this.calculateCartTotalUSD();
   }
 }

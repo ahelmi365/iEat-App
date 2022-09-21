@@ -12,6 +12,7 @@ import { AddToCartComponent } from './components/add-to-cart/add-to-cart.compone
 import { MenuFilteringComponent } from './components/menu-filtering/menu-filtering.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlusMinusItemComponent } from './components/plus-minus-item/plus-minus-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuListComponent,
     MenuItemComponent,
     AddToCartComponent,
-    MenuFilteringComponent
+    MenuFilteringComponent,
+    PlusMinusItemComponent
   ],
   imports: [
     BrowserModule,

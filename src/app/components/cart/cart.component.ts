@@ -11,10 +11,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 export class CartComponent implements OnInit {
   selectedMenuItems: menuItem[] = [];
   cartTotalUSD = 0;
-  cartItemsNumber=0;
-
-
-
+  cartItemsNumber = 0;
 
   constructor(protected cartItemsServic: CartItemsService) { }
 
@@ -28,7 +25,7 @@ export class CartComponent implements OnInit {
       this.cartTotalUSD = Number(totalCart);
     })
 
-    this.cartItemsServic.getCartItemsNumber().subscribe(cartItemnumber=>{
+    this.cartItemsServic.getCartItemsNumber().subscribe(cartItemnumber => {
       this.cartItemsNumber = cartItemnumber;
     })
 
@@ -40,6 +37,44 @@ export class CartComponent implements OnInit {
 
   }
 
+  onMinusClick(id: any) {
+    const item_quant_input = <HTMLInputElement>document.getElementById(id);
+    if ((item_quant_input.valueAsNumber) <= 1) {
+      item_quant_input.valueAsNumber = 1;
+      return;
+    } else {
+      item_quant_input.valueAsNumber -= 1;
+    }
+  }
+
+  onPlusClick(id: any) {
+    const item_quant_input = <HTMLInputElement>document.getElementById(id);
+    item_quant_input.valueAsNumber += 1;
+  }
+
+  // recalculateCartTotal(menuItemId: any) {
+  //   // console.log('cart input changed');
+  //   // console.log(menuItemId);
+  //   // console.log(this.selectedMenuItems.filter(item=>item.id == menuItemId));
+
+
+  //   this.cartItemsServic.calculateCartTotalUSD();
+  //   this.cartItemsServic.getcartTotalUSD();
+  //   this.cartTotalUSD = this.cartItemsServic.cardTotalUSD;
+  //   // console.log(this.cartTotalUSD );
+  //   // console.log(this.cartItemsServic.cardTotalUSD);
+
+
+  // }
+
+  onUpdateItemQuantity(menuItemId:any, itemNewQuantity:Number){
+    // console.log(itemNewQuantity);
+
+    this.cartItemsServic.updateItemQuantity(menuItemId, itemNewQuantity);
+    // let chItem = this.selectedMenuItems.filter(item=>item.id ==menuItemId);
+    // console.log(chItem);
+
+  }
   ngOnDestroy() {
     // this.
   }

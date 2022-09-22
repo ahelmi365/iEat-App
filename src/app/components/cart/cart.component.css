@@ -112,7 +112,7 @@ hr {
   cursor: pointer;
 }
 
-.disableMinus{
+.disableMinus, .disableBuyNowBtn button{
   opacity: 0.4;
   cursor: not-allowed;
 }

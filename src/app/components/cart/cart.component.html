@@ -18,7 +18,7 @@
             currency:'USD'}} </span></strong></span>
       <ng-template #zeroCartTotal>$0</ng-template>
 
-      <div class="cart-sub-total-buy-now"><button class="btn btn-warning btn-sm">Buy Now</button></div>
+      <div class="cart-sub-total-buy-now" [class.disableBuyNowBtn]="selectedMenuItems.length<1" ><button class="btn btn-warning btn-sm">Buy Now</button></div>
 
     </div>
 

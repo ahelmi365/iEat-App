@@ -1,17 +1,21 @@
 <div class="order_menu_item">
   <div class="plus-minus-item">
-
-    <div (click)="onMinusClick($event)" class="fa-minus-item" id="div_minus_item_{{menuItem.id}}">
+<!-- [ngClass]="{'disableMinus': itemQuantity.valueAsNumber==1}" -->
+    <div (click)="onMinusClick($event)"  class="fa-minus-item"
+      id="div_minus_item_{{menuItem.id}}">
       <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
     </div>
+
     <div class="item_quant input-group input-group-sm">
       <label for="item_quant_{{menuItem.id}}" hidden>Number of Items of {{menuItem.name}}</label>
-      <input #itemQuantity disabled  [value]="menuItemsService.itemQuanitity" type="number" name="" id="item_quant_{{menuItem.id}}"
-        class="form-control form-input small text-center" readonly>
+      <input #itemQuantity disabled [value]="menuItemsService.itemQuanitity" type="number" name=""
+        id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center" readonly>
     </div>
+
     <div (click)="onPlusClick($event)" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
       <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
     </div>
+
   </div>
   <div class="add-item_menu">
     <button (click)="onAddToCart($event, itemQuantity.valueAsNumber)" class="btn btn-success btn-sm">Add</button>

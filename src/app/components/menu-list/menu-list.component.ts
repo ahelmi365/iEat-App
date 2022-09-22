@@ -18,17 +18,10 @@ export class MenuListComponent implements OnInit {
   ngOnInit(): void {
     this.menuItemSubscription = this.menuItemsService.getMenuItems().subscribe(res => {
       this.menuItems = res;
-
-      // for (const key in res) {
-      //   let itemCat: string[] = res[key].category;
-      //   console.log(itemCat.includes('breakfast'));
-      //   if (itemCat.includes('lunch')) {
-      //     this.menuItems.push(res[key]);
-      //   }
-      // }
-
     });
   }
+
+
 
 
   ngOnDestroy(): void {

@@ -91,3 +91,9 @@ input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+
+.disableMinus{
+  opacity: 0.4;
+  cursor: not-allowed;
+}

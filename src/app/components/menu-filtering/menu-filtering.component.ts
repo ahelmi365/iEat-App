@@ -10,7 +10,7 @@ import { elementAt } from 'rxjs';
 })
 export class MenuFilteringComponent implements OnInit {
   filterItems = ['all', 'breakfast', 'lunch', 'soup', 'drinks', 'desserts'];
-  itemChecked:boolean=true;
+  itemChecked: boolean = true;
 
   filterForm = new FormGroup({
     all: new FormControl(''),
@@ -28,17 +28,7 @@ export class MenuFilteringComponent implements OnInit {
   }
 
   onFilterChange(evt: any) {
-    // console.log(evt.target.checked);
 
-    // for (const key in this.menuItemsService.) {
-    //     let itemCat: string[] = res[key].category;
-    //     console.log(itemCat.includes('breakfast'));
-    //     if (itemCat.includes('lunch')) {
-    //       this.menuItems.push(res[key]);
-    //     }
-    //   }
-
-    this.menuItemsService.filterMenuItems(String(evt.target.id));
 
     if (evt.target.id == 'all' && evt.target.checked) {
       for (let item = 0; item < this.filterItems.length; item++) {
@@ -75,5 +65,20 @@ export class MenuFilteringComponent implements OnInit {
         all['checked'] = true;
       }
     }
+
+
+    const allFilterItems = document.getElementsByClassName('form-check-input') as HTMLCollectionOf<HTMLInputElement>;
+    const chckedFilterItems: string[] = [];
+
+    Array.from(allFilterItems).forEach((element) => {
+      if (element.checked) {
+        chckedFilterItems.push(element.id);
+      }
+
+    });
+    console.log(chckedFilterItems);
+
+    this.menuItemsService.filterMenuItems(chckedFilterItems);
+
   }
 }

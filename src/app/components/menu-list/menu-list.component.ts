@@ -21,7 +21,13 @@ export class MenuListComponent implements OnInit {
     });
   }
 
+  scrollUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
 
+    })
+  }
 
 
   ngOnDestroy(): void {

@@ -18,7 +18,9 @@
 button.btn.btn-success.btn-sm {
   font-weight: bold;
 }
-
+figcaption{
+  display: none;
+}
 .card-title {
   font-size: .8rem;
 }

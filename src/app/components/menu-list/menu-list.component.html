@@ -1,13 +1,14 @@
-
-  <div class="col all_items">
-    <div class="row ">
-      <div class="col-12 menu-title text-center">
-        <h2>Our Menu</h2>
-      </div>
-    </div>
-    <div class="row app-menu-items">
-      <app-menu-item *ngFor="let menu_item of menuItems" [menuItem]="menu_item"
-        class="row app-menu-item col-6 col-sm-4 col-md-3 "></app-menu-item>
+<div class="col all_items">
+  <div class="row ">
+    <div class="col-12 menu-title text-center">
+      <h2>Our Menu</h2>
     </div>
   </div>
-
+  <div class="row app-menu-items">
+    <app-menu-item *ngFor="let menu_item of menuItems" [menuItem]="menu_item"
+      class="row app-menu-item col-6 col-sm-4 col-md-3 "></app-menu-item>
+  </div>
+  <div class="scroll-up-container" (click)="scrollUp()">
+    <div class="scroll-up"><i class="fa fa-solid fa-arrow-up"></i></div>
+  </div>
+</div>

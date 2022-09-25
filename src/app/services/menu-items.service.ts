@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, observable } from 'rxjs';
+import { BehaviorSubject, Observable, observable, Subject } from 'rxjs';
 import { menuItem } from '../models/menu_items_model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -12,7 +12,19 @@ export class MenuItemsService {
   private menuItems: menuItem[] = [];
   private menuItemsObs = new BehaviorSubject<menuItem[]>([]);
 
-  allMenuItems!:Observable<menuItem[]>;
+  private testFilter = new BehaviorSubject<string>("all");
+  private testFilterObs= this.testFilter.asObservable();
+
+  gettestFilter(){
+    return this.testFilterObs;
+  }
+
+  setTestFilter(newtestFilter:string){
+    this.testFilter.next(newtestFilter);
+  }
+  checkedFilterItems: string[] = [];
+
+  allMenuItems!: Observable<menuItem[]>;
   // private allMenuItems =new BehaviorSubject<menuItem[]>([]);
 
   itemQuanitity: number = 1;
@@ -50,4 +62,17 @@ export class MenuItemsService {
     this.menuItems = [];
     this.menuItemsObs.next(this.menuItems);
   }
+
+
+  getIntersection(listOne: string[], listTwo: string[]): boolean {
+    const set1 = new Set(listOne);
+    const set2 = new Set(listTwo);
+
+    const intersection = [...set1].filter(
+      element => set2.has(element)
+    );
+
+    return intersection.length > 0;
+  }
+
 }

@@ -1,11 +1,23 @@
 .main-columns {
   display: grid;
   grid-template-columns: 26% 40% 30%;
-  /* grid-template-columns: 3fr 10fr 3fr; */
+  /* grid-template-columns: 1fr 4fr 1fr; */
   margin-top: 80px;
   column-gap: 2%;
   background-image: url(../assets/images/body_background.png);
 }
+
+
+/* .main-columns {
+  display: grid;
+  grid-template-columns:repeat(12, 1fr);
+  margin-top: 80px;
+  column-gap: 2%;
+  background-image: url(../assets/images/body_background.png);
+} */
+
+
+
 
 .left,
 .right {
@@ -250,3 +262,6 @@
   }
 
 }
+
+
+

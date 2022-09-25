@@ -5,7 +5,7 @@ export class menuItem{
   url:string;
   description:string;
   itemQuantity:Number;
-  category:[];
+  category:string[];
 
   constructor(){
       this.id = 0;

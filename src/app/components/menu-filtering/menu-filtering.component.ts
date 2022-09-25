@@ -27,7 +27,7 @@ export class MenuFilteringComponent implements OnInit {
 
   }
 
-  onFilterChange(evt: any) {
+  applyChecked(evt: any) {
 
 
     if (evt.target.id == 'all' && evt.target.checked) {
@@ -67,6 +67,10 @@ export class MenuFilteringComponent implements OnInit {
     }
 
 
+
+  }
+
+  onFilterChange(evt: any) {
     const allFilterItems = document.getElementsByClassName('form-check-input') as HTMLCollectionOf<HTMLInputElement>;
     const chckedFilterItems: string[] = [];
 
@@ -78,7 +82,12 @@ export class MenuFilteringComponent implements OnInit {
     });
     console.log(chckedFilterItems);
 
-    this.menuItemsService.filterMenuItems(chckedFilterItems);
+    this.menuItemsService.checkedFilterItems = chckedFilterItems;
+    console.log(this.menuItemsService.checkedFilterItems);
+    // this.menuItemsService.filterMenuItems(chckedFilterItems);
 
+    this.menuItemsService.setTestFilter(chckedFilterItems[0]);
   }
+
+
 }

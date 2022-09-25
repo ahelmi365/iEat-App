@@ -10,7 +10,7 @@
   <div class="card filter_items_content">
     <div class="card-body">
 
-      <form [formGroup]="filterForm" (change)="onFilterChange($event); ">
+      <form [formGroup]="filterForm" (change)="applyChecked($event); onFilterChange($event);  ">
         <div class="form-group row all_filter_item_check">
 
           <div class="form-check filter_item_check" *ngFor="let filterItem of filterItems">

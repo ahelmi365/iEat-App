@@ -6,12 +6,9 @@
     </label>
     <label class="home" for="">iEAT</label>
     <div class="nav__section">
-      <ul class="nav__list">
-        <li class="nav-item"><a href="#">Breakfast</a></li>
-        <li class="nav-item"><a href="#">Lunch</a></li>
-        <li class="nav-item"><a href="#">Dinner</a></li>
-        <li class="nav-item"><a href="#">Drinks</a></li>
-        <li class="nav-item"><a href="#">Soup</a></li>
+      <ul class="nav__list" *ngFor="let navItem of navBarItems">
+        <li class="nav-item"><a href="#{{navItem}}">{{navItem}}</a></li>
+
       </ul>
 
       <form class="nav-form" action="">

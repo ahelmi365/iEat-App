@@ -1,8 +1,11 @@
-<div class="menu_items">
+<div class="menu_items" *ngIf="menuItem.category.includes(testFilter)">
   <div class="card menu_item">
 
     <div class="card-body">
-      <img class="card-img-top" src="{{menuItem.url}}" alt="Card image cap">
+      <figure>
+        <img class="card-img-top" src="{{menuItem.url}}" alt="A photo of {{menuItem.name}}: {{menuItem.description}}">
+        <figcaption>A photo of {{menuItem.name}}</figcaption>
+      </figure>
       <div class="item_details">
         <div>
           <h6 class="card-title">{{menuItem.name}}</h6>

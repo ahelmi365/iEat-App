@@ -13,6 +13,7 @@ import { MenuFilteringComponent } from './components/menu-filtering/menu-filteri
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlusMinusItemComponent } from './components/plus-minus-item/plus-minus-item.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PlusMinusItemComponent } from './components/plus-minus-item/plus-minus-
     MenuItemComponent,
     AddToCartComponent,
     MenuFilteringComponent,
-    PlusMinusItemComponent
+    PlusMinusItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

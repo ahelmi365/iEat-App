@@ -19,8 +19,9 @@
   display: inline-block;
 }
 
-ul.nav__list li a {
+ul.nav__list li a , .home a{
   text-decoration: none;
+  color: #141619;
 }
 
 label.home {

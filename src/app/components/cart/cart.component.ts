@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   cartItemsNumber = 0;
   notifier = new Subject<void>();
 
+
   constructor(protected cartItemsServic: CartItemsService) { }
 
   ngOnInit(): void {
@@ -24,22 +25,25 @@ export class CartComponent implements OnInit {
     });
     this.cartItemsServic.getcartTotalUSD().pipe(takeUntil(this.notifier)).subscribe(totalCart => {
       this.cartTotalUSD = Number(totalCart);
-    })
+    });
 
     this.cartItemsServic.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
       this.cartItemsNumber = cartItemnumber;
-    })
-
+    });
   }
 
   onDeleteCartItem(menuItem: any) {
     this.cartItemsServic.DeleteCartItem(menuItem);
-    console.log(menuItem.id);
+    // console.log(menuItem.id);
     const addItem = <HTMLInputElement>document.getElementById(`addItem-${menuItem.id}`)
-    console.log(addItem);
+
+    // console.log(addItem);
+  if (addItem) {
     addItem.textContent="Add";
     addItem.classList.add('btn-success');
     addItem.classList.remove('btn-primary');
+
+  }
 
   }
 
@@ -64,8 +68,8 @@ export class CartComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.notifier.next()
-    this.notifier.complete()
+    this.notifier.next();
+    this.notifier.complete();
   }
 
 

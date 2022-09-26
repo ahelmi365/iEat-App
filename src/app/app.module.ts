@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlusMinusItemComponent } from './components/plus-minus-item/plus-minus-item.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BuyNowComponent } from './components/buy-now/buy-now.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AddToCartComponent,
     MenuFilteringComponent,
     PlusMinusItemComponent,
-    FooterComponent
+    FooterComponent,
+    BuyNowComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,4 +41,5 @@ import { FooterComponent } from './components/footer/footer.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

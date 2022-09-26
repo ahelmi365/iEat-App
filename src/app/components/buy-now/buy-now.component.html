@@ -1,0 +1,34 @@
+<p>buy-now works!</p>
+<div class="buy-now-container">
+  <div class="app-cart-container">
+    <app-cart class="app-cart"></app-cart>
+  </div>
+  <div class="order-info">
+    <form action="submit">
+
+      <h4>Order Information</h4>
+      <div class="form-field">
+        <label for="username">Name</label><br>
+        <input type="text" name="username" id="username" autofocus placeholder="Your name">
+      </div>
+
+      <div class="form-field">
+        <label for="userphone">Phone Number</label><br>
+        <input type="phone" name="userphone" id="userphone" placeholder="Your phone number">
+      </div>
+
+      <div class="form-field">
+        <label for="useraddress">Address</label><br>
+        <input type="text" name="useraddress" id="useraddress" placeholder="Your address">
+      </div>
+
+      <div class="form-field">
+        <label for="notes">Notes</label><br>
+        <textarea type="text" name="notes" id="notes" rows="3" cols="20" placeholder="Add any notes"></textarea>
+      </div>
+      <div class="submit-order">
+        <a routerLink="/confirm-order"><button type="submit" class="btn btn-success ">Submit Order</button></a>
+      </div>
+    </form>
+  </div>
+</div>

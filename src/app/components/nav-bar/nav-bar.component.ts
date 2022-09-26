@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-navBarItems:String[] = ['Home', 'Main Dishes', 'About', 'Contact Us']
+  navBarItems: {navTitle:string, url:string}[] = [
+    { "navTitle": 'Home', "url": 'menu-list' },  { "navTitle": 'Cart', "url": '/buy-now' }, { "navTitle": 'About Us', "url": '/aboutUs' },]
   constructor() { }
 
   ngOnInit(): void {

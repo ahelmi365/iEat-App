@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject, takeUntil } from 'rxjs';
 import { menuItem } from 'src/app/models/menu_items_model';
+import { CartItemsService } from 'src/app/services/cart-items.service';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
 
 @Component({
@@ -10,19 +11,27 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
 })
 export class MenuListComponent implements OnInit {
 
+  showFilterAside: boolean = false;
+  showCartAside: boolean = false;
+  cartItemsNumber = 0;
+
   menuItems: menuItem[] = [];
-  menuItemSubscription: Subscription = new Subscription();
+  notifier = new Subject<void>();
 
   checkedFilterItems = ['all'];
 
-  constructor(protected menuItemsService: MenuItemsService) { }
+  constructor(protected menuItemsService: MenuItemsService, protected cartItemsServic: CartItemsService) { }
 
   ngOnInit(): void {
-    this.menuItemSubscription = this.menuItemsService.getMenuItems().subscribe(res => {
+    this.menuItemsService.getMenuItems().pipe(takeUntil(this.notifier)).subscribe(res => {
       this.menuItems = res;
     });
 
-    this.menuItemsService.getTestFilter().subscribe(newFilteredItems => {
+    this.cartItemsServic.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
+      this.cartItemsNumber = cartItemnumber;
+    })
+
+    this.menuItemsService.getTestFilter().pipe(takeUntil(this.notifier)).subscribe(newFilteredItems => {
       if (newFilteredItems.length == 0) {
         this.checkedFilterItems = ['all'];
       } else {
@@ -47,8 +56,50 @@ export class MenuListComponent implements OnInit {
   }
 
 
-  ngOnDestroy(): void {
-    this.menuItemSubscription.unsubscribe();
+  showHideFilter(evt: any) {
+    this.showFilterAside = evt.target.checked;
+    // console.log(evt.target.checked);
+    if (this.showFilterAside) {
+      this.showCartAside = false;
+      const chekcCartInput = <HTMLInputElement>document.getElementById('show-cart');
+      chekcCartInput.checked = false;
+    }
+
+  }
+
+  showHideCart(evt: any) {
+    this.showCartAside = evt.target.checked;
+    if (this.showCartAside) {
+      this.showFilterAside = false;
+      const chekcFilterInput = <HTMLInputElement>document.getElementById('show-filter');
+      chekcFilterInput.checked = false;
+    }
+  }
+
+  showMenuIteme(evt: any) {
+    const chekcCartInput = <HTMLInputElement>document.getElementById('show-cart');
+    const chekcFilterInput = <HTMLInputElement>document.getElementById('show-filter');
+
+    if (chekcCartInput.checked) {
+      chekcCartInput.checked = false;
+      this.showCartAside = false;
+    }
+    if (chekcFilterInput.checked) {
+      chekcFilterInput.checked = false;
+      this.showFilterAside = false;
+    }
+
+    const filterAside = <HTMLDivElement>document.querySelector('.left');
+    const showFilterAside = filterAside.classList.contains('showFilterAside');
+
+    if (showFilterAside) {
+      filterAside.classList.remove('showFilterAside')
+    }
+  }
+
+  ngOnDestroy() {
+    this.notifier.next();
+    this.notifier.complete();
   }
 
 }

@@ -1,0 +1,53 @@
+.buy-now-container{
+  margin-top: 80px;
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.app-cart-container{
+  flex-basis:35%;
+  border: 1px solid darkgrey;
+  box-shadow: 0px 7px 10px 0px #888888;
+  /* margin-bottom: 2rem; */
+}
+.cart-sub-total-buy-now{
+  display: none;
+}
+ .order-info{
+  flex-basis: auto;
+  border: 1px solid darkgrey;
+  box-shadow: 0px 7px 10px 0px #888888;
+  padding: 1.8rem;
+}
+
+.app-cart-container{
+max-height: 450px;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+
+
+.form-field input, .form-field textarea{
+  max-width: 300px;
+}
+
+.form-field{
+  margin-top: 1rem;
+}
+
+
+.submit-order{
+  margin-top: 1rem;
+}
+
+@media (max-width:450px){
+  .app-cart-container{
+    flex-basis:63%;
+    margin-bottom: 2rem;
+  }
+  .order-info{
+    width: 65%;
+  }
+}

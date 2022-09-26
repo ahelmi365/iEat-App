@@ -6,9 +6,10 @@
     </label>
     <label class="home" for="">iEAT</label>
     <div class="nav__section">
-      <ul class="nav__list" *ngFor="let navItem of navBarItems">
-        <li class="nav-item"><a href="#{{navItem}}">{{navItem}}</a></li>
-
+      <ul class="nav__list" >
+        <li class="nav-item" *ngFor="let navItem of navBarItems">
+          <a routerLink="/{{navItem.url}}">{{navItem.navTitle}}</a>
+        </li>
       </ul>
 
       <form class="nav-form" action="">

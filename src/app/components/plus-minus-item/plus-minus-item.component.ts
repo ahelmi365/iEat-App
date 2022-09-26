@@ -54,6 +54,12 @@ export class PlusMinusItemComponent implements OnInit {
       this.menuItem.itemQuantity = itemQuantity;
       this.cartItemsService.addToCart(this.menuItem);
 
+      // console.log(event.target);
+      event.target.textContent="Update";
+      event.target.classList.remove('btn-success');
+      event.target.classList.add('btn-primary');
+
+
     }
 
 

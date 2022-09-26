@@ -87,7 +87,7 @@
 .scroll-up {
   position: fixed;
   bottom: 1rem;
-  padding: .3rem;
+  padding: .4rem;
 
   cursor: pointer;
   border: 0.5px solid rgb(187, 208, 238);

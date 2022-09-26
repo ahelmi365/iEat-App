@@ -62,7 +62,7 @@ button.btn.btn-success.btn-sm {
 
 .item_price,
 button.btn.btn-success.btn-sm,
-.item_description {
+.item_description, .add-btn {
   font-size: 0.7rem;
 }
 

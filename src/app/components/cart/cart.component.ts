@@ -34,6 +34,13 @@ export class CartComponent implements OnInit {
 
   onDeleteCartItem(menuItem: any) {
     this.cartItemsServic.DeleteCartItem(menuItem);
+    console.log(menuItem.id);
+    const addItem = <HTMLInputElement>document.getElementById(`addItem-${menuItem.id}`)
+    console.log(addItem);
+    addItem.textContent="Add";
+    addItem.classList.add('btn-success');
+    addItem.classList.remove('btn-primary');
+
   }
 
   onMinusClick(id: any) {

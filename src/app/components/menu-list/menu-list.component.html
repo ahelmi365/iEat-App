@@ -15,7 +15,7 @@
 
 
 
-<div class="col all_items">
+<!-- <div class="col all_items">
   <div class="row ">
     <div class="col-12 menu-title text-center">
       <h2>Our Menu</h2>
@@ -25,6 +25,49 @@
     <div *ngFor="let menu_item of menuItems" [class.dontShowMe]="!(menu_item.category.includes(testFilter))"
       class="row app-menu-item col-6 col-sm-4 col-md-3 ">
       <div *ngIf="menu_item.category.includes(testFilter)">
+        <app-menu-item [menuItem]="menu_item">
+        </app-menu-item>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-up-container" (click)="scrollUp()">
+    <div class="scroll-up"><i class="fa fa-solid fa-arrow-up"></i></div>
+  </div>
+</div> -->
+
+<!--
+<div class="col all_items">
+  <div class="row ">
+    <div class="col-12 menu-title text-center">
+      <h2>Our Menu</h2>
+    </div>
+  </div>
+  <div class="row app-menu-items">
+    <div *ngFor="let menu_item of menuItems" [class.dontShowMe]="!(checkIntersection(menu_item.category))"
+      class="row app-menu-item col-6 col-sm-4 col-md-3 ">
+      <div *ngIf="checkIntersection(menu_item)">
+        <app-menu-item [menuItem]="menu_item">
+        </app-menu-item>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-up-container" (click)="scrollUp()">
+    <div class="scroll-up"><i class="fa fa-solid fa-arrow-up"></i></div>
+  </div>
+</div> -->
+
+
+
+<div class="col all_items">
+  <div class="row ">
+    <div class="col-12 menu-title text-center">
+      <h2>Our Menu</h2>
+    </div>
+  </div>
+  <div class="row app-menu-items">
+    <div *ngFor="let menu_item of menuItems" [class.dontShowMe]="!(checkIntersection(menu_item.category))"
+      class="row app-menu-item col-6 col-sm-4 col-md-3 ">
+      <div *ngIf="checkIntersection(menu_item.category)">
         <app-menu-item [menuItem]="menu_item">
         </app-menu-item>
       </div>

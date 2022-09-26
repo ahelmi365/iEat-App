@@ -1,7 +1,7 @@
 <div class="order_menu_item">
   <div class="plus-minus-item">
     <!-- [ngClass]="{'disableMinus': itemQuantity.valueAsNumber==1}" -->
-    <div (click)="onMinusClick($event)" [class.disableMinus]="itemQuantity.valueAsNumber<2" class="fa-minus-item"
+    <div (click)="onMinusClick($event)" [class.disableMinus]="!(itemQuantity.valueAsNumber>1)" class="fa-minus-item"
       id="div_minus_item_{{menuItem.id}}">
       <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
     </div>

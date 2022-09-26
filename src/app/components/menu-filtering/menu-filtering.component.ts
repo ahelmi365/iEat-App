@@ -86,7 +86,8 @@ export class MenuFilteringComponent implements OnInit {
     console.log(this.menuItemsService.checkedFilterItems);
     // this.menuItemsService.filterMenuItems(chckedFilterItems);
 
-    this.menuItemsService.setTestFilter(chckedFilterItems[0]);
+    // this.menuItemsService.setTestFilter(chckedFilterItems[0]);
+    this.menuItemsService.setTestFilter(chckedFilterItems);
   }
 
 

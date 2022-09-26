@@ -12,14 +12,14 @@ export class MenuItemsService {
   private menuItems: menuItem[] = [];
   private menuItemsObs = new BehaviorSubject<menuItem[]>([]);
 
-  private testFilter = new BehaviorSubject<string>("all");
+  private testFilter = new BehaviorSubject<string[]>([]);
   private testFilterObs= this.testFilter.asObservable();
 
-  gettestFilter(){
+  getTestFilter(){
     return this.testFilterObs;
   }
 
-  setTestFilter(newtestFilter:string){
+  setTestFilter(newtestFilter:string[]){
     this.testFilter.next(newtestFilter);
   }
   checkedFilterItems: string[] = [];

@@ -13,12 +13,20 @@ export class MenuListComponent implements OnInit {
   menuItems: menuItem[] = [];
   menuItemSubscription: Subscription = new Subscription();
 
+  testFilter='all';
+
   constructor(protected menuItemsService: MenuItemsService) { }
 
   ngOnInit(): void {
     this.menuItemSubscription = this.menuItemsService.getMenuItems().subscribe(res => {
       this.menuItems = res;
     });
+
+    this.menuItemsService.gettestFilter().subscribe(newVal=>{
+      this.testFilter = newVal;
+    })
+    console.log(this.testFilter);
+
   }
 
   scrollUp() {

@@ -30,7 +30,8 @@ overflow-y: scroll;
 
 
 .form-field input, .form-field textarea{
-  max-width: 300px;
+  /* max-width: 300px; */
+  width: 90%;
 }
 
 .form-field{
@@ -40,6 +41,7 @@ overflow-y: scroll;
 
 .submit-order{
   margin-top: 1rem;
+  text-align: center;
 }
 
 @media (max-width:450px){
@@ -49,5 +51,6 @@ overflow-y: scroll;
   }
   .order-info{
     width: 65%;
+    margin-bottom: 2rem;
   }
 }

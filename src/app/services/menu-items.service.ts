@@ -12,36 +12,28 @@ export class MenuItemsService {
   private menuItems: menuItem[] = [];
   private menuItemsObs = new BehaviorSubject<menuItem[]>([]);
 
-  private testFilter = new BehaviorSubject<string[]>([]);
-  private testFilterObs= this.testFilter.asObservable();
+  private FilteredCategoryList = new BehaviorSubject<string[]>([]);
+  private FilteredCategoryListObs = this.FilteredCategoryList.asObservable();
 
-  getTestFilter(){
-    return this.testFilterObs;
-  }
 
-  setTestFilter(newtestFilter:string[]){
-    this.testFilter.next(newtestFilter);
-  }
   checkedFilterItems: string[] = [];
 
   allMenuItems!: Observable<menuItem[]>;
-  // private allMenuItems =new BehaviorSubject<menuItem[]>([]);
-
   itemQuanitity: number = 1;
 
   constructor(private http: HttpClient) { }
 
+  getTestFilter(): Observable<string[]> {
+    return this.FilteredCategoryListObs;
+  }
+
+  setTestFilter(newFilteredCategoryList: string[]) {
+    this.FilteredCategoryList.next(newFilteredCategoryList);
+  }
+
   getMenuItems(): Observable<menuItem[]> {
     return this.http.get<menuItem[]>('assets/data/menu_items.json');
   }
-
-
-  // private loadFromServer() {
-  //   this.allMenuItems = this.http.get('assets/data/menu_items.json').pipe(map(data => {})).subscribe(result => {
-  //     console.log(result);
-  // });}
-
-
 
   descreaseItemAmount() {
     this.itemQuanitity--;
@@ -51,27 +43,24 @@ export class MenuItemsService {
     this.itemQuanitity++;
   }
 
-  filterMenuItems(chckedFilterItems: string[]) {
+  getIntersection(listOne: string[], listTwo: string[]): boolean {
+    const intersection: string[] = [];
+    for (const item of listOne) {
+      if (listTwo.includes(item)) {
+        intersection.push(item);
+      }
+    }
 
-
-    // const filteredMenuItems = this.menuItems.filter(item => { return item.category.includes(String(filterBy)) })
-    // this.menuItems = filteredMenuItems;
-    this.menuItemsObs.next(this.menuItems);
-    // console.log(filterBy);
-
-    this.menuItems = [];
-    this.menuItemsObs.next(this.menuItems);
+    return intersection.length > 0;
   }
 
-
-  getIntersection(listOne: string[], listTwo: string[]): boolean {
+  getIntersection_2(listOne: [], listTwo: string[]): boolean {
     const set1 = new Set(listOne);
     const set2 = new Set(listTwo);
 
     const intersection = [...set1].filter(
       element => set2.has(element)
     );
-
     return intersection.length > 0;
   }
 

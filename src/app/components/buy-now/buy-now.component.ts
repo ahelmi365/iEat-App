@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyNowComponent implements OnInit {
 
+  regionsList = ['zamalek', 'mohandessin', 'dokki', 'downtown', 'maadi', 'other']
+
   constructor() { }
 
   ngOnInit(): void {

@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Falafel",
     "price": 0.25,
-    "url": "assets/images/food/falafel.jpg",
+    "url": "assets/images/food/meals/falafel-small.jpg",
     "description": "Chickpea, herbs, spices.",
     "category":["all","breakfast"]
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Beans",
     "price": 0.5,
-    "url": "assets/images/food/beans.jpeg",
+    "url": "assets/images/food/meals/beans-small.jpeg",
     "description": "Beans plate with Tehyna and limon",
     "category":["all","breakfast"]
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Beans & Eggs",
     "price": 0.99,
-    "url": "assets/images/food/beans-eggs.png",
+    "url": "assets/images/food/meals/beans-eggs-small.png",
     "description": "Beans plate with Eggs, Tehyna and limon",
     "category":["all","breakfast"]
   },
@@ -28,7 +28,7 @@
     "id": 4,
     "name": "Baba Ghanoug",
     "price": 0.5,
-    "url": "assets/images/food/baba.jpg",
+    "url": "assets/images/food/meals/baba-small.jpg",
     "description": "cream of roasted eggplant, olive oil, garlic, sesame paste (tahini) and lemon",
     "category":["all","breakfast", "salad","lunch"]
   },
@@ -37,7 +37,7 @@
     "id": 5,
     "name": "Pasta Salad",
     "price": 0.99,
-    "url": "assets/images/food/pasta-salad.jpg",
+    "url": "assets/images/food/meals/pasta-salad-small.jpg",
     "description": "Lettuce, vegetables, mozzarella.",
     "category":["all","breakfast", "salad","lunch"]
   },
@@ -45,7 +45,7 @@
     "id": 6,
     "name": "Greek Salad",
     "price": 1.5,
-    "url": "assets/images/food/greek-salad.jpg",
+    "url": "assets/images/food/meals/greek-salad-small.jpg",
     "description": "Cucumbers, onion, feta cheese.",
     "category":["all","breakfast", "salad","lunch"]
   },
@@ -54,7 +54,7 @@
     "id": 7,
     "name": "Koshary",
     "price": 1.99,
-    "url": "assets/images/food/koshary.jpg",
+    "url": "assets/images/food/meals/koshary-small.jpg",
     "description": "Rice, macroni, shearya, onion, and salsa",
     "category":["all","lunch"]
   },
@@ -62,7 +62,7 @@
     "id": 8,
     "name": "Shawarma",
     "price": 2.99,
-    "url": "assets/images/food/shawarma.png",
+    "url": "assets/images/food/meals/shawarma-small.png",
     "description": "A large cone of pressed lamb or chicken that is rotated vertically in front of a flame grill",
     "category":["all","lunch"]
   },
@@ -71,7 +71,7 @@
     "id": 9,
     "name": "Alex-Kebda",
     "price": 3.99,
-    "url": "assets/images/food/alexandrian-kebdah.jpg",
+    "url": "assets/images/food/meals/alexandrian-kebdah-small.jpg",
     "description": "The liver is prepared with hot pepper and garlic or onion can be added.As for the sausage",
     "category":["all","lunch"]
   },
@@ -79,7 +79,7 @@
     "id": 10,
     "name": "Fried Calamari",
     "price": 3.99,
-    "url": "assets/images/food/calemari.jpg",
+    "url": "assets/images/food/meals/calemari-small.jpg",
     "description": "Squid, buttermilk.",
     "category":["all","lunch"]
   },
@@ -87,7 +87,7 @@
     "id": 11,
     "name": "Molokhya",
     "price": 2.99,
-    "url": "assets/images/food/molokhiya.png",
+    "url": "assets/images/food/meals/molokhiya-small.png",
     "description": "A soup made from mallow leaves. Green in color, it has a thick, viscous texture.",
     "category":["all","lunch"]
   },
@@ -95,7 +95,7 @@
     "id": 12,
     "name": "Besarah",
     "price": 1.99,
-    "url": "assets/images/food/besarah.jpg",
+    "url": "assets/images/food/meals/besarah-small.jpg",
     "description": "A creamy green puree prepared with parsley, dill, leek, ground beans, spices, green pepper and fried onions on top.",
     "category":["all","lunch"]
   },
@@ -104,7 +104,7 @@
     "id": 13,
     "name": "Pigeon",
     "price": 5.99,
-    "url": "assets/images/food/pigeon.png",
+    "url": "assets/images/food/meals/pigeon-small.png",
     "description": "A traditional delicacy food, pigeons (Hamaam) are bred throughout Egypt in conical pigeon towers.",
     "category":["all","lunch"]
   },
@@ -112,7 +112,7 @@
     "id": 14,
     "name": "Mahshi",
     "price": 3.99,
-    "url": "assets/images/food/mahshi.jpg",
+    "url": "assets/images/food/meals/mahshi-small.jpg",
     "description": "A baked vegetables, usually peppers, zucchini or aubergine, stuffed with rice mixed with aromatic herbs (parsley, coriander…).",
     "category":["all","lunch"]
   },
@@ -121,7 +121,7 @@
     "id": 15,
     "name": "Kofta",
     "price": 6.99,
-    "url": "assets/images/food/kofta.png",
+    "url": "assets/images/food/meals/kofta-small.png",
     "description": "Flame-grilled chunks of lamb (kebab) and spiced minced meat made into a sausage and grilled on a skewer (kofta) ",
     "category":["all","lunch"]
   },
@@ -130,7 +130,7 @@
     "id": 16,
     "name": "Hawawshii",
     "price": 3.99,
-    "url": "assets/images/food/hawawshi.jpg",
+    "url": "assets/images/food/meals/hawawshi-small.jpg",
     "description": "A bread (something similar to pita bread) that is usually filled with minced meat, onion, pepper. Hawawshi is perhaps best known as a staple of home-style Egyptian cooking to make you feel good",
     "category":["all","lunch"]
   },
@@ -139,7 +139,7 @@
     "id": 17,
     "name": "Mix-Desserts",
     "price": 2.99,
-    "url": "assets/images/food/desserts/mix_desserts.png",
+    "url": "assets/images/food/desserts/mix_desserts-small.png",
     "description": "Mix od Basbosaa and Konafa in one plate",
     "category":["all","desserts"]
   },
@@ -148,7 +148,7 @@
     "id": 18,
     "name": "Basbosaa",
     "price": 2.99,
-    "url": "assets/images/food/desserts/basbosa.jpg",
+    "url": "assets/images/food/desserts/basbosa-small.jpg",
     "description": "A tasty dessert that has crossed borders, the Basbousa is of Ottoman origin. Found in different countries, it is favored by people all over the world.",
     "category":["all","desserts"]
   },
@@ -157,7 +157,7 @@
     "id": 19,
     "name": "Konafaa",
     "price": 2.99,
-    "url": "assets/images/food/desserts/konafa.jpg",
+    "url": "assets/images/food/desserts/konafa-small.jpg",
     "description": "The Kanefeh is a cake prepared with some semolina noodles, similar to angel hair, which are rolled and flattened and cooked together with butter and a creamy cheese over low heat. Once ready, it is soaked in syrup and a few groundnuts are added.",
     "category":["all","desserts"]
   },
@@ -166,7 +166,7 @@
     "id": 20,
     "name": "Om-Ali",
     "price": 2.99,
-    "url": "assets/images/food/desserts/om_ali.jpg",
+    "url": "assets/images/food/desserts/om_ali-small.jpg",
     "description": "Om-Ali is made of layers of puff pastry soaked in milk and mixed with nuts, raisins, coconut flakes, and sugar, and then baked.",
     "category":["all","desserts"]
   },
@@ -175,7 +175,7 @@
     "id": 21,
     "name": "Baklava",
     "price": 2.99,
-    "url": "assets/images/food/desserts/baklava.png",
+    "url": "assets/images/food/desserts/baklava-small.png",
     "description": "A cream base and a crunchy vermicelli pastry crust and Basbousa, made of semolina pastry soaked in honey and topped with hazelnuts.",
     "category":["all","desserts"]
   }

@@ -45,8 +45,8 @@ button.btn.btn-success.btn-sm,
 }
 
 .card-img-top {
-  object-fit: cover;
-  height: 116px;
+  /* object-fit: cover;
+  height: 116px; */
   margin-bottom: 0.5rem;
 }
 

@@ -4,25 +4,39 @@
     <app-cart class="app-cart"></app-cart>
   </div>
   <div class="order-info">
+    <h4>Order Information</h4>
     <form action="submit">
 
-      <h4>Order Information</h4>
-      <div class="form-field">
-        <label for="username">Name</label><br>
-        <input type="text" name="username" id="username" autofocus placeholder="Your name">
+      <div class="form-field firstname">
+        <label for="firstname">First name</label><br>
+        <input type="text" name="firstname" id="firstname" autofocus placeholder="Your first name">
       </div>
 
-      <div class="form-field">
+      <div class="form-field lastname">
+        <label for="lastname">Last name</label><br>
+        <input type="text" name="lastname" id="lastname" placeholder="Your last name">
+      </div>
+
+      <div class="form-field userphone">
         <label for="userphone">Phone Number</label><br>
         <input type="phone" name="userphone" id="userphone" placeholder="Your phone number">
       </div>
 
-      <div class="form-field">
-        <label for="useraddress">Address</label><br>
-        <input type="text" name="useraddress" id="useraddress" placeholder="Your address">
+      <div class="form-field region">
+        <label for="region">Please select address</label><br>
+        <select name="region" id="region">
+          <option value="-1">Select one</option>
+          <option value="{{regionItem}}" *ngFor="let regionItem of regionsList">{{regionItem | titlecase}}</option>
+        </select>
       </div>
 
-      <div class="form-field">
+      <div class="form-field useraddress">
+        <label for="useraddress">Address in details</label><br>
+        <textarea type="text" name="useraddress" id="useraddress" placeholder="Your address in details" rows="3" cols="20" ></textarea>
+
+      </div>
+
+      <div class="form-field notes">
         <label for="notes">Notes</label><br>
         <textarea type="text" name="notes" id="notes" rows="3" cols="20" placeholder="Add any notes"></textarea>
       </div>

@@ -48,19 +48,19 @@ export class PlusMinusItemComponent implements OnInit {
     return (item_quant_input);
   }
 
-    // on click on Add button
-    onAddToCart(event:any, itemQuantity:Number){
-      // console.log(this.menuItem);
-      this.menuItem.itemQuantity = itemQuantity;
-      this.cartItemsService.addToCart(this.menuItem);
+  // on click on Add button
+  onAddToCart(event: any, itemQuantity: Number) {
+    // console.log(this.menuItem);
+    this.menuItem.itemQuantity = itemQuantity;
+    this.cartItemsService.addToCart(this.menuItem);
 
-      // console.log(event.target);
-      event.target.textContent="Update";
-      event.target.classList.remove('btn-success');
-      event.target.classList.add('btn-primary');
+    // console.log(event.target);
+    event.target.textContent = "Update";
+    event.target.classList.remove('btn-success');
+    event.target.classList.add('btn-primary');
 
 
-    }
+  }
 
 
 }

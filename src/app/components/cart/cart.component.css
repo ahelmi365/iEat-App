@@ -174,7 +174,10 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 
-
+.cart-item-delete{
+  max-width: 200px;
+  margin: auto;
+}
 @media (max-width:550px) {
   .cart-content {
     /* width: 60%; */

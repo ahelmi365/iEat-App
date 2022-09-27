@@ -7,7 +7,7 @@
     </div>
 
     <div class="item_quant input-group input-group-sm">
-      <label for="item_quant_{{menuItem.id}}" hidden>Number of Items of {{menuItem.name}}</label>
+      <label for="item_quant_{{menuItem.id}}" class="aria-invisible">Number of Items of {{menuItem.name}}</label>
       <input #itemQuantity disabled [value]=1 type="number" name="item_quant_{{menuItem.id}}"
         id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center" readonly>
     </div>

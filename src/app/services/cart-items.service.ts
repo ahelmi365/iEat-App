@@ -23,6 +23,12 @@ export class CartItemsService {
     const itemFound: boolean = this.cartDataList.some((el: any) => el.id === menuItem.id);
 
     if (itemFound) {
+
+      this.cartDataList.forEach((element: any) => {
+        if (element.id == menuItem.id) {
+          element.itemQuantity = menuItem.itemQuantity;
+        }
+      });
       this.calculateCartTotalUSD();
       return
     } else {

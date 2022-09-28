@@ -19,7 +19,7 @@
       <ng-template #zeroCartTotal>$0</ng-template>
 
       <div class="cart-sub-total-buy-now" [class.disableBuyNowBtn]="!(selectedMenuItems.length>0)" >
-        <a routerLink="/buy-now"> <button class="btn btn-warning btn-sm">Buy Now</button></a>
+        <a routerLink="/buy-now" [class.disable-link]="!(selectedMenuItems.length>0)"> <button  [disabled]="!(selectedMenuItems.length>0)"  class="btn btn-warning btn-sm">Buy Now</button></a>
        </div>
 
     </div>

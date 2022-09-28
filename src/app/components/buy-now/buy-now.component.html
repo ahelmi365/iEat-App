@@ -5,43 +5,64 @@
   </div>
   <div class="order-info">
     <h4>Order Information</h4>
-    <form action="submit">
+    <form action="submit" class="orderInfoForm" [formGroup]="orderInfoForm"
+      (ngSubmit)="checkOrderInfoFormValidators($event)">
+      <div class="fullname">
+        <div class="form-field firstname">
+          <label for="firstName">First name</label><br>
+          <p id="firstNameError" class="order-info-error">
+            Please enter a valid name (min 3 charachters)
+          </p>
+          <input formControlName="firstName" type="text" name="firstName" id="firstName" autofocus
+            placeholder="(min 3 charachters)">
+        </div>
 
-      <div class="form-field firstname">
-        <label for="firstname">First name</label><br>
-        <input type="text" name="firstname" id="firstname" autofocus placeholder="Your first name">
-      </div>
-
-      <div class="form-field lastname">
-        <label for="lastname">Last name</label><br>
-        <input type="text" name="lastname" id="lastname" placeholder="Your last name">
+        <div class="form-field lastname">
+          <label for="lastName">Last name</label><br>
+          <p id="lastNameError" class="order-info-error">
+            Please enter a valid name (min 3 charachters)
+          </p>
+          <input formControlName="lastName" type="text" name="lastName" id="lastName" placeholder="(min 3 charachters)">
+        </div>
       </div>
 
       <div class="form-field userphone">
-        <label for="userphone">Phone Number</label><br>
-        <input type="phone" name="userphone" id="userphone" placeholder="Your phone number">
+        <label for="userPhone">Mobile Number</label><br>
+        <p id="userPhoneError" class="order-info-error">
+          Please enter a valid phone number (starts with "01" and consists of 11 digits)
+        </p>
+        <input formControlName="userPhone" type="tel" name="userPhone" id="userPhone"
+          placeholder="(starts with '01' and consists of 11 digits)">
       </div>
 
       <div class="form-field region">
-        <label for="region">Please select address</label><br>
-        <select name="region" id="region">
+        <label for="region">Please select region</label><br>
+        <p id="regionError" class="order-info-error">
+          Please select the region
+        </p>
+        <select formControlName="region" name="region" id="region" required>
           <option value="-1">Select one</option>
           <option value="{{regionItem}}" *ngFor="let regionItem of regionsList">{{regionItem | titlecase}}</option>
         </select>
       </div>
 
       <div class="form-field useraddress">
-        <label for="useraddress">Address in details</label><br>
-        <textarea type="text" name="useraddress" id="useraddress" placeholder="Your address in details" rows="3" cols="20" ></textarea>
+        <label for="userAddress">Address in details</label><br>
+        <p id="userAddressError" class="order-info-error">
+          Please enter a valid address (min 5 charachters)
+        </p>
+        <textarea formControlName="userAddress" type="text" name="userAddress" id="userAddress"
+          placeholder="(min 5 charachters)" minlength="5" maxlength="200" rows="3" cols="20"></textarea>
 
       </div>
 
       <div class="form-field notes">
-        <label for="notes">Notes</label><br>
-        <textarea type="text" name="notes" id="notes" rows="3" cols="20" placeholder="Add any notes"></textarea>
+        <label for="notes">Notes <em>(optional)</em></label><br>
+        <textarea formControlName="notes" type="text" name="notes" id="notes" rows="3" cols="20"
+          placeholder="Add any notes"></textarea>
       </div>
       <div class="submit-order">
-        <a routerLink="/confirm-order"><button type="submit" class="btn btn-success ">Submit Order</button></a>
+        <button type="submit" class="btn btn-success" [disabled]="!(cartItemsNumber>0)" >Submit Order</button>
       </div>
     </form>
   </div>

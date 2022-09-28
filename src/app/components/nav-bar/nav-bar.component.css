@@ -70,6 +70,7 @@ label.home {
   margin-right: 10px;
   max-width: 145px;
   line-height: 1;
+  width: 100px;
 }
 
 .nav-btn-search {
@@ -116,6 +117,12 @@ label.home {
   display: none;
 }
 
+
+.disable-link {
+  pointer-events: none;
+}
+
+
 @media (max-width:952px) {
   label.home {
     font-size: 1rem;
@@ -127,7 +134,7 @@ label.home {
   }
 }
 
-@media (max-width:760px) {
+@media (max-width:700px) {
   label.home {
     display: block;
   }

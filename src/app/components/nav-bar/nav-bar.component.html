@@ -8,7 +8,7 @@
     <div class="nav__section">
       <ul class="nav__list" >
         <li class="nav-item" *ngFor="let navItem of navBarItems">
-          <a routerLink="/{{navItem.url}}">{{navItem.navTitle}}</a>
+          <a routerLink="/{{navItem.url}}" [class.disable-link]="cartItemsNumber==0 && navItem.navTitle=='Cart' ">{{navItem.navTitle}}</a>
         </li>
       </ul>
 

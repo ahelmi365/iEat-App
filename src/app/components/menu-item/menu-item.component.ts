@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { menuItem } from 'src/app/models/menu_items_model';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { CartItemsService } from 'src/app/services/cart-items.service';
-import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-menu-item',
@@ -12,7 +11,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class MenuItemComponent implements OnInit {
   @Input() menuItem: menuItem;
   private selectedMenuItems: menuItem[] = [];
-  notifier = new Subject<void>();
+
 
   constructor(protected menuItemsService: MenuItemsService, protected cartItemsService: CartItemsService) {
     this.menuItem = {

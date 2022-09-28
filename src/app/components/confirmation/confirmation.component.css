@@ -1,3 +1,37 @@
-.order-info-container{
-  margin-top: 80px;
+.order-info-container {
+  margin-top: 7rem;
+  width: 80%;
+  border: 1px solid gray;
+  box-shadow: 0px 7px 10px 0px #888888;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: fit-content;
+
+}
+
+.order-details {
+  margin: auto;
+  /* border: 1px solid red; */
+  width: fit-content;
+  padding: 1rem;
+}
+.order-detail-title{
+margin-bottom: 1.5rem;
+border-bottom: 1px double black;
+  }
+
+.order-title{
+  font-size: 2rem;
+}
+
+.item-detail h2{
+  font-size: 1rem;
+  display: inline;
+  font-weight: bold;
+}
+
+
+.item-detail{
+  margin-bottom: .5rem;
 }

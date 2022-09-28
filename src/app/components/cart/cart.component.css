@@ -178,6 +178,12 @@ input[type='number']::-webkit-outer-spin-button {
   max-width: 200px;
   margin: auto;
 }
+
+.disable-link {
+  pointer-events: none;
+}
+
+
 @media (max-width:550px) {
   .cart-content {
     /* width: 60%; */

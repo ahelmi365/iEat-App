@@ -1,5 +1,20 @@
 <div class="order-info-container">
-  <div class="congrat">
-    <h4>Congratulations, your order has been added! </h4>
+  <div class="order-details">
+    <div class="order-detail-title">
+      <h1 class="order-title">Order Details </h1>
+    </div>
+    <div class="row-order-detail">
+      <div class="item-detail"><h2>Order By</h2>: {{orderInfo.firstName}} {{orderInfo.lastName}}</div>
+      <div class="item-detail"><h2>Order Date</h2>: {{orderDate | date }} </div>
+      <div class="item-detail"><h2>Order Time</h2>: {{orderDate | date :'shortTime'}} </div>
+      <div class="item-detail"><h2>Delivering Region:</h2> {{orderInfo.orderRegion | titlecase }}</div>
+      <div class="item-detail"><h2>Delivering Address</h2>: {{orderInfo.orderAddressInDetails}}</div>
+      <div class="item-detail"><h2>Subtotal</h2>: ${{cartTotalUSD}}</div>
+      <div class="item-detail"><h2>Vat Tax (14%)</h2>: ${{orderVATTax}}</div>
+      <div class="item-detail"><h2>Delivery Fees</h2>: ${{orderDeliveryFees}}</div>
+      <hr>
+      <div class="item-detail"><h2>Total</h2>: <strong>${{orderTotal}}</strong></div>
+      <hr>
+    </div>
   </div>
 </div>

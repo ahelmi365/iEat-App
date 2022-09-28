@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { takeUntil, Subject } from 'rxjs';
+import { CartItemsService } from 'src/app/services/cart-items.service';
+
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,11 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  navBarItems: {navTitle:string, url:string}[] = [
-    { "navTitle": 'Home', "url": 'menu-list' },  { "navTitle": 'Cart', "url": '/buy-now' }, { "navTitle": 'About Us', "url": '/aboutUs' },]
-  constructor() { }
+  cartItemsNumber = 0;
+  notifier = new Subject<void>();
+
+  navBarItems: { navTitle: string, url: string }[] = [
+    { "navTitle": 'Home', "url": 'menu-list' }, { "navTitle": 'Cart', "url": '/buy-now' }, { "navTitle": 'About Us', "url": '/aboutUs' },]
+  constructor(protected cartItemsService: CartItemsService) { }
 
   ngOnInit(): void {
+    this.cartItemsService.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
+      this.cartItemsNumber = cartItemnumber;
+    });
   }
+  ngOnDestroy() {
+    this.notifier.next();
+    this.notifier.complete();
+  }
+
 
 }

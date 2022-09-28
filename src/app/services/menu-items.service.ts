@@ -18,7 +18,7 @@ export class MenuItemsService {
 
   checkedFilterItems: string[] = [];
 
-  allMenuItems!: Observable<menuItem[]>;
+  // allMenuItems!: Observable<menuItem[]>;
   itemQuanitity: number = 1;
 
   constructor(private http: HttpClient) { }

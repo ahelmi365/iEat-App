@@ -19,6 +19,10 @@
   </div>
 
   <div class="add-item_menu">
-    <button (click)="onAddToCart($event, itemQuantity.valueAsNumber)" class="btn btn-success btn-sm add-btn" id="addItem-{{menuItem.id}}">Add</button>
+
+    <button (click)="onAddToCart($event, itemQuantity.valueAsNumber)"
+      [ngClass]="menuItem.inCart? 'btn-primary': 'btn-success'" class="btn  btn-sm add-btn"
+      id="addItem-{{menuItem.id}}">{{menuItem.inCart? 'Update': 'Add'}}</button>
   </div>
+
 </div>

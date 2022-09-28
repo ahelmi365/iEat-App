@@ -4,12 +4,10 @@
 }
 
 .all_items {
-  background: url(/src/assets/images/body_background.png);
   margin-top: 1rem;
 }
 
 .menu-title {
-  /* font-family:'Times New Roman', Times, serif */
   font-family: 'Montserrat', sans-serif;
 }
 

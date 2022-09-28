@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { menuItem } from 'src/app/models/menu_items_model';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { CartItemsService } from 'src/app/services/cart-items.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-menu-item',
@@ -11,6 +12,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 export class MenuItemComponent implements OnInit {
   @Input() menuItem: menuItem;
   private selectedMenuItems: menuItem[] = [];
+  notifier = new Subject<void>();
 
   constructor(protected menuItemsService: MenuItemsService, protected cartItemsService: CartItemsService) {
     this.menuItem = {
@@ -20,15 +22,20 @@ export class MenuItemComponent implements OnInit {
       url: '',
       description: '',
       itemQuantity: 0,
-      category:[]
+      category: [],
+      inCart: false
     }
   }
+
+
   ngOnInit(): void {
-    // subscripe on an observalble in menu-item service to change the [testFlter] value
 
   }
-
-
 
 
 }
+
+
+
+
+

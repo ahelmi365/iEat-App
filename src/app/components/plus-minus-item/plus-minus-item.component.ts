@@ -18,11 +18,13 @@ export class PlusMinusItemComponent implements OnInit {
       url: '',
       description: '',
       itemQuantity: 0,
-      category: []
+      category: [],
+      inCart:false
     }
   }
 
   ngOnInit(): void {
+
   }
 
 
@@ -50,15 +52,9 @@ export class PlusMinusItemComponent implements OnInit {
 
   // on click on Add button
   onAddToCart(event: any, itemQuantity: Number) {
-    // console.log(this.menuItem);
     this.menuItem.itemQuantity = itemQuantity;
+    this.cartItemsService.setInCartIdOnAdd(this.menuItem.id);
     this.cartItemsService.addToCart(this.menuItem);
-
-    // console.log(event.target);
-    event.target.textContent = "Update";
-    event.target.classList.remove('btn-success');
-    event.target.classList.add('btn-primary');
-
 
   }
 

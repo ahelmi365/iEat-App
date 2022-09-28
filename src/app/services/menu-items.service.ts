@@ -23,11 +23,11 @@ export class MenuItemsService {
 
   constructor(private http: HttpClient) { }
 
-  getTestFilter(): Observable<string[]> {
+  getCheckedFilter(): Observable<string[]> {
     return this.FilteredCategoryListObs;
   }
 
-  setTestFilter(newFilteredCategoryList: string[]) {
+  setCheckedFilter(newFilteredCategoryList: string[]) {
     this.FilteredCategoryList.next(newFilteredCategoryList);
   }
 

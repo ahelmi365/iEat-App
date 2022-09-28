@@ -15,6 +15,9 @@ export class CartItemsService {
   cardTotalUSD = 0;
   private cardTotalUSDObs = new BehaviorSubject(observable);
 
+  private menuItemInCartId: any[] = [];
+  private menuItemInCartIdObs = new BehaviorSubject(this.menuItemInCartId);
+
 
   constructor() { }
 
@@ -62,7 +65,8 @@ export class CartItemsService {
   }
 
   DeleteCartItem(menuItem: any) {
-    const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItem.id)
+    const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItem.id);
+
     this.cartDataList.splice(itemIndexToRemove, 1);
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
@@ -73,13 +77,38 @@ export class CartItemsService {
   }
 
 
+  setInCartIdOnDelete(menuItemId: any) {
+    // const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItemId);
+    const itemIndexToRemove =  this.menuItemInCartId.indexOf(menuItemId);
+    this.menuItemInCartId.splice(itemIndexToRemove,1);
+    // this.menuItemInCartId = this.menuItemInCartId.filter(itemId=>{
+    //   itemId!=menuItemId;
+    // })
+    this.menuItemInCartIdObs.next(this.menuItemInCartId);
+    // return this.menuItemInCartIdObs.asObservable();
+  }
+
+  setInCartIdOnAdd(menuItemId: any) {
+    // const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItemId);
+    this.menuItemInCartId.push(menuItemId);
+    this.menuItemInCartIdObs.next(this.menuItemInCartId);
+    // return this.menuItemInCartIdObs.asObservable();
+  }
+
+
+  getInCartId() {
+    // console.log( this.menuItemInCartId);
+
+    return this.menuItemInCartIdObs.asObservable();
+  }
+
   updateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
     const indexOfItem = this.cartDataList.findIndex(item => item.id === menuItemId);
     this.cartDataList.forEach(item => {
       if (item.id == menuItemId) {
         item.itemQuantity = itemNewQuantity;
       }
-    })
+    });
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
   }

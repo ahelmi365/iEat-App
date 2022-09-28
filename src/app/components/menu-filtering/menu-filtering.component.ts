@@ -87,7 +87,7 @@ export class MenuFilteringComponent implements OnInit {
     // this.menuItemsService.filterMenuItems(chckedFilterItems);
 
     // this.menuItemsService.setTestFilter(chckedFilterItems[0]);
-    this.menuItemsService.setTestFilter(chckedFilterItems);
+    this.menuItemsService.setCheckedFilter(chckedFilterItems);
   }
 
 

@@ -6,6 +6,7 @@ export class menuItem{
   description:string;
   itemQuantity:Number;
   category:string[];
+  inCart:boolean;
 
   constructor(){
       this.id = 0;
@@ -15,6 +16,7 @@ export class menuItem{
       this.description="";
       this.itemQuantity=0;
       this.category=[];
+      this.inCart=false;
 
   }
 }

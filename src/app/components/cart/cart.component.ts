@@ -16,32 +16,34 @@ export class CartComponent implements OnInit {
   notifier = new Subject<void>();
 
 
-  constructor(protected cartItemsServic: CartItemsService) { }
+  constructor(protected cartItemsService: CartItemsService) { }
 
   ngOnInit(): void {
 
-    this.cartItemsServic.getcartDataList().pipe(takeUntil(this.notifier)).subscribe((menuItem) => {
+    this.cartItemsService.getcartDataList().pipe(takeUntil(this.notifier)).subscribe((menuItem) => {
       this.selectedMenuItems = menuItem;
     });
-    this.cartItemsServic.getcartTotalUSD().pipe(takeUntil(this.notifier)).subscribe(totalCart => {
+    this.cartItemsService.getcartTotalUSD().pipe(takeUntil(this.notifier)).subscribe(totalCart => {
       this.cartTotalUSD = Number(totalCart);
     });
 
-    this.cartItemsServic.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
+    this.cartItemsService.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
       this.cartItemsNumber = cartItemnumber;
     });
   }
 
   onDeleteCartItem(menuItem: any) {
-    this.cartItemsServic.DeleteCartItem(menuItem);
+
+    this.cartItemsService.setInCartIdOnDelete(menuItem.id);
+    this.cartItemsService.DeleteCartItem(menuItem);
     // console.log(menuItem.id);
     const addItem = <HTMLInputElement>document.getElementById(`addItem-${menuItem.id}`)
 
     // console.log(addItem);
   if (addItem) {
-    addItem.textContent="Add";
-    addItem.classList.add('btn-success');
-    addItem.classList.remove('btn-primary');
+    // addItem.textContent="Add";
+    // addItem.classList.add('btn-success');
+    // addItem.classList.remove('btn-primary');
 
   }
 
@@ -64,7 +66,7 @@ export class CartComponent implements OnInit {
 
 
   onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
-    this.cartItemsServic.updateItemQuantity(menuItemId, itemNewQuantity);
+    this.cartItemsService.updateItemQuantity(menuItemId, itemNewQuantity);
   }
 
   ngOnDestroy() {

@@ -52,11 +52,8 @@ export class ConfirmationComponent implements OnInit {
     this.orderVATTax = +(this.cartTotalUSD *.14).toFixed(2);
     this.orderTotal = this.cartTotalUSD + this.orderVATTax + this.orderDeliveryFees;
     this.orderTotal  = +this.orderTotal.toFixed(2);
-    console.log( this.orderTotal );
-    console.log(this.orderDate);
-
-
-
+    // console.log( this.orderTotal );
+    // console.log(this.orderDate);
   }
 
 

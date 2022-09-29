@@ -37,7 +37,7 @@
 }
 
 .app-cart-container {
-  max-height: 650px;
+  max-height: 560px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -64,7 +64,7 @@ input::placeholder {
 }
 
 .form-field {
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 

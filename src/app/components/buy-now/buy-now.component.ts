@@ -93,7 +93,7 @@ export class BuyNowComponent implements OnInit {
 
     if (this.orderInfoForm.invalid) {
       event.preventDefault();
-      console.log("invalid Form");
+      // console.log("invalid Form");
     } else {
 
       this.submitOrderInfoForm(event);
@@ -114,7 +114,7 @@ export class BuyNowComponent implements OnInit {
     this.orderInfoService.submitOrderInfo(this.orderInfo)
 
     // event.currentTarget.submit();
-    console.log("Submited");
+    // console.log("Submited");
     this.router.navigateByUrl('/confirm-order');
 
   }

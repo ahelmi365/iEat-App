@@ -1,7 +1,9 @@
 .nav__bar {
   font-family: 'Montserrat', sans-serif;
   background-color: #f8f9fa;
-  height: 80px;
+  /* height: 80px; */
+  /* height: 65px; */
+  height: 50px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -27,7 +29,9 @@ ul.nav__list li a , .home a{
 label.home {
   color: #212529;
   font-size: 1.5rem;
-  line-height: 80px;
+  /* line-height: 80px; */
+  /* line-height: 65px; */
+  line-height: 50px;
   /* padding: 0 100px; */
   padding-left: 100px;
   font-weight: bold;
@@ -42,7 +46,9 @@ label.home {
 .nav__bar ul li,
 .nav-form {
   display: inline-block;
-  line-height: 80px;
+  /* line-height: 80px; */
+  /* line-height: 65px; */
+  line-height: 50px;
   margin: 0 5px;
 }
 
@@ -107,7 +113,9 @@ label.home {
 .check__btn {
   font-size: 1.5rem;
   float: right;
-  line-height: 80px;
+  /* line-height: 80px; */
+  /* line-height: 65px; */
+  line-height: 50px;
   margin-right: 2rem;
   cursor: pointer;
   display: none;
@@ -147,7 +155,9 @@ label.home {
     position: fixed;
     height: 100vh;
     background: #6c757d;
-    top: 80px;
+    /* top: 80px; */
+    /* top: 65px; */
+    top: 50px;
     left: -100%;
     text-align: center;
     width: 100%;

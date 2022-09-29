@@ -9,6 +9,7 @@
 
 .menu-title {
   font-family: 'Montserrat', sans-serif;
+  display: none;
 }
 
 
@@ -289,9 +290,7 @@
 
   .left {
     position: fixed;
-    transform: translate(-90%);
-    /* transform: translate(calc(-100vw + 60px)); */
-    /* transition: all .5s; */
+    transform: translate(-94vw);
     z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;
@@ -312,8 +311,7 @@
 
   .right {
     position: fixed;
-    transform: translate(calc(100vw - 60px));
-    /* transition: all .5s; */
+    transform: translate(94vw);
     z-index: 2;
     margin-top: 52px;
     border-top: 1px solid #bbb;

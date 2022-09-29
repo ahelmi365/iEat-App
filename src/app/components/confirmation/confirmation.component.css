@@ -12,9 +12,7 @@
 
 .order-details {
   margin: auto;
-  /* border: 1px solid red; */
   width: fit-content;
-  padding: 1rem;
 }
 .order-detail-title{
 margin-bottom: 1.5rem;
@@ -34,4 +32,9 @@ border-bottom: 1px double black;
 
 .item-detail{
   margin-bottom: .5rem;
+}
+
+
+.total-hr{
+  margin-bottom: 0;;
 }

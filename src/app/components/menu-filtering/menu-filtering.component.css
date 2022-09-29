@@ -45,6 +45,10 @@ aside.Layout-aside {
   padding: 0;
 }
 
+div.card.filter_items_content{
+  min-width: 120px;
+}
+
 /* @media (max-width:475px) {
   .filter-card_title {
     text-align: right;

@@ -33,6 +33,9 @@ export class CartComponent implements OnInit {
   }
 
   onDeleteCartItem(menuItem: any) {
+    menuItem.itemQuantity = 1;
+    menuItem.inCart =false;
+    // console.log(menuItem.inCart );
 
     this.cartItemsService.setInCartIdOnDelete(menuItem.id);
     this.cartItemsService.DeleteCartItem(menuItem);

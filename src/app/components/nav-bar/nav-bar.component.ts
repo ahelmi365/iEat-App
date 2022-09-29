@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
   notifier = new Subject<void>();
 
   navBarItems: { navTitle: string, url: string }[] = [
-    { "navTitle": 'Home', "url": 'menu-list' }, { "navTitle": 'Cart', "url": '/buy-now' }, { "navTitle": 'About Us', "url": '/aboutUs' },]
+    { "navTitle": 'Home', "url": '' }, { "navTitle": 'Cart', "url": '/buy-now' }, { "navTitle": 'About Us', "url": '/aboutUs' },]
   constructor(protected cartItemsService: CartItemsService) { }
 
   ngOnInit(): void {

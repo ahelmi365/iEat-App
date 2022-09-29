@@ -35,6 +35,12 @@ export class MenuListComponent implements OnInit {
       .pipe(takeUntil(this.notifier))
       .subscribe((res) => {
         this.menuItems = res;
+        // console.log(this.menuItems);
+        this.menuItems.forEach((item) => {
+          item['itemQuantity'] = 1;
+          item['inCart'] = false;
+        });
+        // console.log(this.menuItems);
       });
 
     this.cartItemsService
@@ -43,7 +49,6 @@ export class MenuListComponent implements OnInit {
       .subscribe((cartItemnumber) => {
         this.cartItemsNumber = cartItemnumber;
       });
-
 
     this.menuItemsService
       .getCheckedFilter()
@@ -55,7 +60,6 @@ export class MenuListComponent implements OnInit {
           this.checkedFilterItems = newFilteredItems;
         }
       });
-
 
     this.cartItemsService
       .getcartDataList()
@@ -75,15 +79,13 @@ export class MenuListComponent implements OnInit {
 
         this.menuItems.forEach((item) => {
           if (this.inCartItemsIds.includes(item.id)) {
-            // console.log('this.inCartItemsIds includes', item.id);
+            console.log('this.inCartItemsIds includes id:', item.id);
             item.inCart = true;
           } else {
             item.inCart = false;
           }
         });
       });
-
-
   }
 
   checkIntersection(menuItemCategoryList: any): boolean {
@@ -142,7 +144,7 @@ export class MenuListComponent implements OnInit {
     }
   }
   ngOnDestroy() {
-    // this.notifier.next();
-    // this.notifier.complete();
+    this.notifier.next();
+    this.notifier.complete();
   }
 }

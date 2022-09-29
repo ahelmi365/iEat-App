@@ -2,6 +2,7 @@
   <div class="order-details">
     <div class="order-detail-title">
       <h1 class="order-title">Order Details </h1>
+      <p>Thank you {{orderInfo.firstName}}! Your order is confirmed.</p>
     </div>
     <div class="row-order-detail">
       <div class="item-detail"><h2>Order By</h2>: {{orderInfo.firstName}} {{orderInfo.lastName}}</div>
@@ -12,9 +13,9 @@
       <div class="item-detail"><h2>Subtotal</h2>: ${{cartTotalUSD}}</div>
       <div class="item-detail"><h2>Vat Tax (14%)</h2>: ${{orderVATTax}}</div>
       <div class="item-detail"><h2>Delivery Fees</h2>: ${{orderDeliveryFees}}</div>
-      <hr>
+      <hr >
       <div class="item-detail"><h2>Total</h2>: <strong>${{orderTotal}}</strong></div>
-      <hr>
+      <hr class="total-hr">
     </div>
   </div>
 </div>

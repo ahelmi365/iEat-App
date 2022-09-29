@@ -54,6 +54,8 @@ export class ConfirmationComponent implements OnInit {
     this.orderTotal  = +this.orderTotal.toFixed(2);
     // console.log( this.orderTotal );
     // console.log(this.orderDate);
+
+    this.cartItemsService.clearCartList();
   }
 
 

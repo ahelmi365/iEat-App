@@ -12,8 +12,8 @@ export class CartItemsService {
   private cartItemsNumber = 0;
   private cartItemsNumberObs = new BehaviorSubject(this.cartItemsNumber);
 
-  cardTotalUSD = 0;
-  private cardTotalUSDObs = new BehaviorSubject(observable);
+  private cardTotalUSD = 0;
+  private cardTotalUSDObs = new BehaviorSubject(this.cardTotalUSD);
 
   private menuItemInCartId: any[] = [];
   private menuItemInCartIdObs = new BehaviorSubject(this.menuItemInCartId);
@@ -60,7 +60,7 @@ export class CartItemsService {
 
     // using reduce high order function (HOF)
     this.cardTotalUSD = this.cartDataList.reduce((prev, curr) => { return prev + curr.price * Number(curr.itemQuantity) }, 0)
-    this.cardTotalUSDObs.next(String(this.cardTotalUSD.toFixed(2)));
+    this.cardTotalUSDObs.next(+(this.cardTotalUSD.toFixed(2)));
 
   }
 
@@ -78,27 +78,19 @@ export class CartItemsService {
 
 
   setInCartIdOnDelete(menuItemId: any) {
-    // const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItemId);
-    const itemIndexToRemove =  this.menuItemInCartId.indexOf(menuItemId);
-    this.menuItemInCartId.splice(itemIndexToRemove,1);
-    // this.menuItemInCartId = this.menuItemInCartId.filter(itemId=>{
-    //   itemId!=menuItemId;
-    // })
-    this.menuItemInCartIdObs.next(this.menuItemInCartId);
-    // return this.menuItemInCartIdObs.asObservable();
+    // const itemIndexToRemove = this.menuItemInCartId.indexOf(menuItemId);
+    // this.menuItemInCartId.splice(itemIndexToRemove, 1);
+    // this.menuItemInCartIdObs.next(this.menuItemInCartId);
   }
 
   setInCartIdOnAdd(menuItemId: any) {
-    // const itemIndexToRemove = this.cartDataList.findIndex(item => item.id === menuItemId);
-    this.menuItemInCartId.push(menuItemId);
-    this.menuItemInCartIdObs.next(this.menuItemInCartId);
-    // return this.menuItemInCartIdObs.asObservable();
+    // this.menuItemInCartId.push(menuItemId);
+    // this.menuItemInCartIdObs.next(this.menuItemInCartId);
   }
 
 
   getInCartId() {
     // console.log( this.menuItemInCartId);
-
     return this.menuItemInCartIdObs.asObservable();
   }
 
@@ -111,5 +103,19 @@ export class CartItemsService {
     });
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
+  }
+
+  clearCartList() {
+    this.cartDataList = [];
+    this.cartDataListObs.next(this.cartDataList);
+
+    this.cartItemsNumber = 0;
+    this.cartItemsNumberObs.next(this.cartItemsNumber);
+
+    this.cardTotalUSD = 0;
+    this.cardTotalUSDObs.next(0);
+
+    this.menuItemInCartId=[];
+    this.menuItemInCartIdObs.next(this.menuItemInCartId);
   }
 }

@@ -156,12 +156,13 @@ label.home {
 
   .nav__bar ul.nav__list {
     margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .nav__bar ul li {
     display: block;
     width: max-content;
-    line-height: 3.5;
+    line-height: 2;
   }
 
   .nav__bar ul li a {
@@ -204,5 +205,9 @@ label.home {
 
   #check:checked~.nav__section {
     left: 0;
+  }
+
+  .nav-search {
+    width: 100%;
   }
 }

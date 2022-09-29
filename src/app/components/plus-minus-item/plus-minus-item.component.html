@@ -1,14 +1,14 @@
 <div class="order_menu_item">
   <div class="plus-minus-item">
     <!-- [ngClass]="{'disableMinus': itemQuantity.valueAsNumber==1}" -->
-    <div (click)="onMinusClick($event)" [class.disableMinus]="!(itemQuantity.valueAsNumber>1)" class="fa-minus-item"
+    <div (click)="onMinusClick($event)" [class.disableMinus]="!(menuItem.itemQuantity>1)" class="fa-minus-item"
       id="div_minus_item_{{menuItem.id}}">
       <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
     </div>
 
     <div class="item_quant input-group input-group-sm">
       <label for="item_quant_{{menuItem.id}}" class="aria-invisible">Number of Items of {{menuItem.name}}</label>
-      <input #itemQuantity disabled [value]=1 type="number" name="item_quant_{{menuItem.id}}"
+      <input #itemQuantity disabled [value]=menuItem.itemQuantity type="number" name="item_quant_{{menuItem.id}}"
         id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center" readonly>
     </div>
 
@@ -18,11 +18,18 @@
 
   </div>
 
-  <div class="add-item_menu">
+  <!-- <div class="add-item_menu">
 
-    <button (click)="onAddToCart($event, itemQuantity.valueAsNumber)"
+    <button (click)="onAddToCart($event, menuItem.itemQuantity)"
       [ngClass]="menuItem.inCart? 'btn-primary': 'btn-success'" class="btn  btn-sm add-btn"
       id="addItem-{{menuItem.id}}">{{menuItem.inCart? 'Update': 'Add'}}</button>
+  </div> -->
+
+  <div class="add-item_menu">
+
+    <button (click)="onAddToCart($event, menuItem.itemQuantity)" *ngIf="!(menuItem.inCart)"
+      class="btn btn-success btn-sm add-btn " id="addItem-{{menuItem.id}}">Add</button>
+    <span *ngIf="menuItem.inCart" class="item-added"><i class="fa fa-solid fa-check"></i></span>
   </div>
 
 </div>

@@ -52,6 +52,51 @@
 
   {
     "id": 7,
+    "name": "Kale Soup",
+    "price": 0.99,
+    "url": "assets/images/food/soup/kale.webp",
+    "description": "A nourishing soup of blended vegetables that would make a perfect supper along with a toasted baguette and cheese. Top with kale chips for a bit of added interest when serving.",
+    "category":["all","soup"]
+  },
+
+  {
+    "id": 8,
+    "name": "Pumpkin Soup",
+    "price": 0.99,
+    "url": "assets/images/food/soup/pumpkin.webp",
+    "description": "Make this recipe in the fall when the small three-pound sugar pumpkins are stacked high in the produce aisle, bringing forth the bounty and flavors of the autumn—a time for warming soups and stews. As a fun garnish, top the soup with toasted pepitas and a swirl of sour cream, or toasted sourdough or rye croutons. ",
+    "category":["all","soup"]
+  },
+
+  {
+    "id": 9,
+    "name": "Carrot Ginger Soup",
+    "price": 1.99,
+    "url": "assets/images/food/soup/carrot.webp",
+    "description": "carrot and ginger + saucepan + oil and sauté the onions + garlic + ",
+    "category":["all","soup"]
+  },
+
+  {
+    "id": 10,
+    "name": "Carrot Potato Soup",
+    "price": 1.99,
+    "url": "assets/images/food/soup/potato.webp",
+    "description": "Potatoes and carrots + saucepan + onion, garlic",
+    "category":["all","soup"]
+  },
+
+  {
+    "id": 11,
+    "name": "Lentil Soup",
+    "price": 1.99,
+    "url": "assets/images/food/soup/lentil.webp",
+    "description": "Lentils  and potato  + carrots + saucepan + onion, garlic",
+    "category":["all","soup"]
+  },
+
+  {
+    "id": 12,
     "name": "Koshary",
     "price": 1.99,
     "url": "assets/images/food/meals/koshary-small.jpg",
@@ -59,7 +104,7 @@
     "category":["all","lunch"]
   },
   {
-    "id": 8,
+    "id": 13,
     "name": "Shawarma",
     "price": 2.99,
     "url": "assets/images/food/meals/shawarma-small.png",
@@ -68,7 +113,7 @@
   },
 
   {
-    "id": 9,
+    "id": 14,
     "name": "Alex-Kebda",
     "price": 3.99,
     "url": "assets/images/food/meals/alexandrian-kebdah-small.jpg",
@@ -76,7 +121,7 @@
     "category":["all","lunch"]
   },
   {
-    "id": 10,
+    "id": 15,
     "name": "Fried Calamari",
     "price": 3.99,
     "url": "assets/images/food/meals/calemari-small.jpg",
@@ -84,7 +129,7 @@
     "category":["all","lunch"]
   },
   {
-    "id": 11,
+    "id": 16,
     "name": "Molokhya",
     "price": 2.99,
     "url": "assets/images/food/meals/molokhiya-small.png",
@@ -92,7 +137,7 @@
     "category":["all","lunch"]
   },
   {
-    "id": 12,
+    "id": 17,
     "name": "Besarah",
     "price": 1.99,
     "url": "assets/images/food/meals/besarah-small.jpg",
@@ -101,7 +146,7 @@
   },
 
   {
-    "id": 13,
+    "id": 18,
     "name": "Pigeon",
     "price": 5.99,
     "url": "assets/images/food/meals/pigeon-small.png",
@@ -109,7 +154,7 @@
     "category":["all","lunch"]
   },
   {
-    "id": 14,
+    "id": 19,
     "name": "Mahshi",
     "price": 3.99,
     "url": "assets/images/food/meals/mahshi-small.jpg",
@@ -118,7 +163,7 @@
   },
 
   {
-    "id": 15,
+    "id": 20,
     "name": "Kofta",
     "price": 6.99,
     "url": "assets/images/food/meals/kofta-small.png",
@@ -127,7 +172,7 @@
   },
 
   {
-    "id": 16,
+    "id": 21,
     "name": "Hawawshii",
     "price": 3.99,
     "url": "assets/images/food/meals/hawawshi-small.jpg",
@@ -136,7 +181,7 @@
   },
 
   {
-    "id": 17,
+    "id": 22,
     "name": "Mix-Desserts",
     "price": 2.99,
     "url": "assets/images/food/desserts/mix_desserts-small.png",
@@ -145,7 +190,7 @@
   },
 
   {
-    "id": 18,
+    "id": 23,
     "name": "Basbosaa",
     "price": 2.99,
     "url": "assets/images/food/desserts/basbosa-small.jpg",
@@ -154,7 +199,7 @@
   },
 
   {
-    "id": 19,
+    "id": 24,
     "name": "Konafaa",
     "price": 2.99,
     "url": "assets/images/food/desserts/konafa-small.jpg",
@@ -163,7 +208,7 @@
   },
 
   {
-    "id": 20,
+    "id": 25,
     "name": "Om-Ali",
     "price": 2.99,
     "url": "assets/images/food/desserts/om_ali-small.jpg",
@@ -172,12 +217,66 @@
   },
 
   {
-    "id": 21,
+    "id": 26,
     "name": "Baklava",
     "price": 2.99,
     "url": "assets/images/food/desserts/baklava-small.png",
     "description": "A cream base and a crunchy vermicelli pastry crust and Basbousa, made of semolina pastry soaked in honey and topped with hazelnuts.",
     "category":["all","desserts"]
+  },
+
+  {
+    "id": 27,
+    "name": "Tea",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/tea-small.png",
+    "description": "Tea (Shai) is served strong and extremely sweet. For Western-style tea ask for “Shai Lipton”, made with a teabag.",
+    "category":["all","drinks"]
+  },
+  {
+    "id": 28,
+    "name": "Sugarcane Juice",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/sugarcan-small.png",
+    "description": "Even more popular (it’s cheaper) than fruit juice is sugarcane juice (Asab). The cane is ground up and served as a milky green liquid.",
+    "category":["all","drinks"]
+  },
+
+
+  {
+    "id": 29,
+    "name": "Limoon Juice",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/limoon-small.png",
+    "description": "A refreshing summer drink of squeezed lemon juice, water, and sugar, served with ice.",
+    "category":["all","drinks"]
+  },
+
+  {
+    "id": 30,
+    "name": "Sahlab",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/sahlab-small.png",
+    "description": "A winter drink made from the starch in the ground bulb of an orchid, mixed with milk, sugar, and rosewater, then garnished with chopped pistachios and cinnamon.",
+    "category":["all","drinks"]
+  },
+
+  {
+    "id": 31,
+    "name": "Karkade",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/karkade-small.png",
+    "description": "A drink that can be served either hot or cold, made from the boiled, dried leaves of the hibiscus plant, with sugar added to taste.",
+    "category":["all","drinks"]
+  },
+
+  {
+    "id": 32,
+    "name": "Yansoon",
+    "price": 0.99,
+    "url": "assets/images/food/drinks/yansoun-small.png",
+    "description": "Yansun is an aniseed-flavored drink, besides being consumed for its rich flavor, it is also recommended for colds and throat problems.",
+    "category":["all","drinks"]
   }
 
 ]

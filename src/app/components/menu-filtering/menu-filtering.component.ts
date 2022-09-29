@@ -9,7 +9,7 @@ import { elementAt } from 'rxjs';
   styleUrls: ['./menu-filtering.component.css']
 })
 export class MenuFilteringComponent implements OnInit {
-  filterItems = ['all', 'breakfast', 'lunch', 'soup', 'drinks', 'desserts'];
+  filterItems = ['all', 'breakfast', 'soup', 'lunch', 'desserts', 'drinks'];
   itemChecked: boolean = true;
 
   filterForm = new FormGroup({

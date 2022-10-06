@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   selectedMenuItems: menuItem[] = [];
   cartTotalUSD = 0;
   cartItemsNumber = 0;

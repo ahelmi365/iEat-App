@@ -15,7 +15,7 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
   templateUrl: './menu-list.component.html',
   styleUrls: ['./menu-list.component.css'],
 })
-export class MenuListComponent implements OnInit {
+export class MenuListComponent implements OnInit, OnDestroy {
   showFilterAside: boolean = false;
   showCartAside: boolean = false;
   cartItemsNumber = 0;
@@ -29,63 +29,12 @@ export class MenuListComponent implements OnInit {
     protected cartItemsService: CartItemsService
   ) { }
   ngOnInit(): void {
-    // console.log('ngOnInit started');
-    this.menuItemsService
-      .getMenuItems()
-      .pipe(takeUntil(this.notifier))
-      .subscribe((res) => {
-        this.menuItems = res;
-        // console.log(this.menuItems);
-        this.menuItems.forEach((item) => {
-          item['itemQuantity'] = 1;
-          item['inCart'] = false;
-        });
-        // console.log(this.menuItems);
-      });
 
-    this.cartItemsService
-      .getCartItemsNumber()
-      .pipe(takeUntil(this.notifier))
-      .subscribe((cartItemnumber) => {
-        this.cartItemsNumber = cartItemnumber;
-      });
-
-    this.menuItemsService
-      .getCheckedFilter()
-      .pipe(takeUntil(this.notifier))
-      .subscribe((newFilteredItems) => {
-        if (newFilteredItems.length == 0) {
-          this.checkedFilterItems = ['all'];
-        } else {
-          this.checkedFilterItems = newFilteredItems;
-        }
-      });
-
-    this.cartItemsService
-      .getcartDataList()
-      .pipe(takeUntil(this.notifier))
-      .subscribe((menuItem) => {
-        this.selectedMenuItems = menuItem;
-        // console.log(this.selectedMenuItems);
-      });
-
-    this.cartItemsService
-      .getInCartId()
-      .pipe(takeUntil(this.notifier))
-      .subscribe((menuItemInCartIds) => {
-        // console.log(menuItemId);
-        this.inCartItemsIds = menuItemInCartIds;
-        // console.log(this.inCartItemsIds);
-
-        this.menuItems.forEach((item) => {
-          if (this.inCartItemsIds.includes(item.id)) {
-            console.log('this.inCartItemsIds includes id:', item.id);
-            item.inCart = true;
-          } else {
-            item.inCart = false;
-          }
-        });
-      });
+    this.getCartItemsNumber();
+    this.getCheckedFilterItems();
+    this.getcartDataList();
+    this.getInCartItemsIds();
+    this.getAllMenuItems();
   }
 
   checkIntersection(menuItemCategoryList: any): boolean {
@@ -93,13 +42,6 @@ export class MenuListComponent implements OnInit {
       menuItemCategoryList,
       this.checkedFilterItems
     );
-  }
-  scrollUp() {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
   }
   showHideFilter(evt: any) {
     this.showFilterAside = evt.target.checked;
@@ -142,6 +84,71 @@ export class MenuListComponent implements OnInit {
     if (showFilterAside) {
       filterAside.classList.remove('showFilterAside');
     }
+  }
+  addDeleteButton() {
+    this.menuItems.forEach((item) => {
+      if (this.inCartItemsIds.includes(item.id)) {
+        item.inCart = true;
+      } else {
+        item.inCart = false;
+      }
+    });
+  }
+  getCartItemsNumber() {
+    this.cartItemsService
+      .getCartItemsNumber()
+      .pipe(takeUntil(this.notifier))
+      .subscribe((cartItemnumber) => {
+        this.cartItemsNumber = cartItemnumber;
+      });
+  }
+  getCheckedFilterItems() {
+    this.menuItemsService
+      .getCheckedFilter()
+      .pipe(takeUntil(this.notifier))
+      .subscribe((newFilteredItems) => {
+        if (newFilteredItems.length == 0) {
+          this.checkedFilterItems = ['all'];
+        } else {
+          this.checkedFilterItems = newFilteredItems;
+        }
+      });
+  }
+  getcartDataList() {
+    this.cartItemsService
+      .getcartDataList()
+      .pipe(takeUntil(this.notifier))
+      .subscribe((menuItem) => {
+        this.selectedMenuItems = menuItem;
+      });
+  }
+  getInCartItemsIds() {
+    this.cartItemsService.getInCartId().pipe(takeUntil(this.notifier)).subscribe(inCartIDs => {
+      this.inCartItemsIds = inCartIDs;
+      // console.log(this.inCartItemsIds);
+      this.addDeleteButton();
+    })
+  }
+  getAllMenuItems() {
+    this.menuItemsService
+      .getMenuItems()
+      .pipe(takeUntil(this.notifier))
+      .subscribe((res) => {
+        this.menuItems = res;
+        this.menuItems.forEach((item) => {
+          item['itemQuantity'] = 1;
+          // item['inCart'] = false;
+        });
+
+        this.addDeleteButton();
+      });
+  }
+  scrollUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
   ngOnDestroy() {
     this.notifier.next();

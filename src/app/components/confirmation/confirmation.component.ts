@@ -1,6 +1,6 @@
 import { takeUntil, Subject } from 'rxjs';
 import { OrderInfoService } from 'src/app/services/order-info.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OrderInfo } from 'src/app/models/order_info_model';
 import { CartItemsService } from 'src/app/services/cart-items.service';
 import { DatePipe } from '@angular/common';
@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.css']
 })
-export class ConfirmationComponent implements OnInit {
+export class ConfirmationComponent implements OnInit , OnDestroy{
   orderInfo: OrderInfo;
 
   cartTotalUSD = 0;
@@ -43,6 +43,9 @@ export class ConfirmationComponent implements OnInit {
 
     this.cartItemsService.getcartTotalUSD().pipe(takeUntil(this.notifier)).subscribe(totalCart => {
       this.cartTotalUSD = Number(totalCart);
+      console.log( `this.cartTotalUSD ${this.cartTotalUSD}`);
+      console.log(`totalcart from cart service: ${totalCart}`);
+
     });
 
     this.cartItemsService.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
@@ -55,7 +58,7 @@ export class ConfirmationComponent implements OnInit {
     // console.log( this.orderTotal );
     // console.log(this.orderDate);
 
-    this.cartItemsService.clearCartList();
+
   }
 
 
@@ -63,6 +66,7 @@ export class ConfirmationComponent implements OnInit {
   ngOnDestroy() {
     this.notifier.next();
     this.notifier.complete();
+    this.cartItemsService.clearCartList();
   }
 
 

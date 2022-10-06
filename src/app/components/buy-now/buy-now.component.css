@@ -62,7 +62,7 @@ input::placeholder {
 }
 .form-field input,
 .form-field textarea:focus{
-  outline-color: #28a745 ;
+  /* outline-color: #28a745 ; */
 }
 
 .form-field {
@@ -73,23 +73,6 @@ input::placeholder {
 .submit-order {
   margin-top: 1rem;
   text-align: center;
-}
-
-
-
-.app-cart-container::-webkit-scrollbar {
-  width: 5px;
-}
-
-
-.app-cart-container::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.app-cart-container::-webkit-scrollbar-thumb {
-  background-color: #bbb;
-  /* outline: 1px solid slategrey; */
 }
 
 
@@ -127,3 +110,13 @@ input::placeholder {
 .firstname, .lastname{
   flex-basis: 40%;
 } */
+
+
+
+input.ng-invalid, textarea.ng-invalid, select.ng-invalid{
+  outline: 1px solid red;
+}
+
+input.ng-valid,  textarea.ng-valid{
+  outline: 1px solid green;
+}

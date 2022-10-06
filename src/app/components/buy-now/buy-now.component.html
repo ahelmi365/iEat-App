@@ -1,68 +1,117 @@
 <p>buy-now works!</p>
 <div class="buy-now-container">
-  <div class="app-cart-container">
+  <div class="app-cart-container small-scroll-bar">
     <app-cart class="app-cart"></app-cart>
   </div>
   <div class="order-info">
     <h4>Order Information</h4>
-    <form action="submit" class="orderInfoForm" [formGroup]="orderInfoForm"
-      (ngSubmit)="checkOrderInfoFormValidators($event)">
+    <form
+      action="submit"
+      class="orderInfoForm"
+      [formGroup]="orderInfoForm"
+      (ngSubmit)="checkOrderInfoFormValidators($event)"
+    >
       <div class="fullname">
         <div class="form-field firstname">
-          <label for="firstName">First name</label><br>
+          <label for="firstName">First name</label><br />
           <p id="firstNameError" class="order-info-error">
             Please enter a valid name (min 3 charachters)
           </p>
-          <input formControlName="firstName" type="text" name="firstName" id="firstName" autofocus
-            placeholder="(min 3 charachters)">
+          <input
+            formControlName="firstName"
+            type="text"
+            name="firstName"
+            id="firstName"
+            autofocus
+            placeholder="(min 3 charachters)"
+          />
         </div>
 
         <div class="form-field lastname">
-          <label for="lastName">Last name</label><br>
+          <label for="lastName">Last name</label><br />
           <p id="lastNameError" class="order-info-error">
             Please enter a valid name (min 3 charachters)
           </p>
-          <input formControlName="lastName" type="text" name="lastName" id="lastName" placeholder="(min 3 charachters)">
+          <input
+            formControlName="lastName"
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="(min 3 charachters)"
+          />
         </div>
       </div>
 
       <div class="form-field userphone">
-        <label for="userPhone">Mobile Number</label><br>
+        <label for="userPhone">Mobile Number</label><br />
         <p id="userPhoneError" class="order-info-error">
-          Please enter a valid phone number (starts with "01" and consists of 11 digits)
+          Please enter a valid phone number (starts with "01" and consists of 11
+          digits)
         </p>
-        <input formControlName="userPhone" type="tel" name="userPhone" id="userPhone"
-          placeholder="(starts with '01' and consists of 11 digits)">
+        <input
+          formControlName="userPhone"
+          type="tel"
+          name="userPhone"
+          id="userPhone"
+          placeholder="(starts with '01' and consists of 11 digits)"
+        />
       </div>
 
       <div class="form-field region">
-        <label for="region">Please select region</label><br>
+        <label for="region">Please select region</label><br />
         <p id="regionError" class="order-info-error">
           Please select the region
         </p>
         <select formControlName="region" name="region" id="region" required>
           <option value="-1">Select one</option>
-          <option value="{{regionItem}}" *ngFor="let regionItem of regionsList">{{regionItem | titlecase}}</option>
+          <option
+            value="{{ regionItem }}"
+            *ngFor="let regionItem of regionsList"
+          >
+            {{ regionItem | titlecase }}
+          </option>
         </select>
       </div>
 
       <div class="form-field useraddress">
-        <label for="userAddress">Address in details</label><br>
+        <label for="userAddress">Address in details</label><br />
         <p id="userAddressError" class="order-info-error">
           Please enter a valid address (min 5 charachters)
         </p>
-        <textarea formControlName="userAddress" type="text" name="userAddress" id="userAddress"
-          placeholder="(min 5 charachters)" minlength="5" maxlength="200" rows="2" cols="20"></textarea>
-
+        <textarea
+          formControlName="userAddress"
+          type="text"
+          name="userAddress"
+          id="userAddress"
+          placeholder="(min 5 charachters)"
+          minlength="5"
+          maxlength="200"
+          rows="2"
+          cols="20"
+        ></textarea>
       </div>
 
       <div class="form-field notes">
-        <label for="notes">Notes <em>(optional)</em></label><br>
-        <textarea formControlName="notes" type="text" name="notes" id="notes" rows="2" cols="20"
-          placeholder="Add any notes"></textarea>
+        <label for="notes">Notes <em>(optional)</em></label
+        ><br />
+        <textarea
+          formControlName="notes"
+          type="text"
+          name="notes"
+          id="notes"
+          rows="2"
+          cols="20"
+          placeholder="Add any notes"
+        ></textarea>
       </div>
       <div class="submit-order">
-        <button type="submit" class="btn btn-success" [disabled]="!(cartItemsNumber>0)" >Submit Order</button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!(cartItemsNumber > 0)"
+        >
+          Submit Order
+        </button>
       </div>
     </form>
   </div>

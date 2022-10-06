@@ -1,23 +1,36 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, observable, Subject, throwError } from 'rxjs';
 import { menuItem } from '../models/menu_items_model';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuItemsService {
 
-  private menuItems: menuItem[] = [];
-  private menuItemsObs = new BehaviorSubject<menuItem[]>([]);
+
 
   private FilteredCategoryList = new BehaviorSubject<string[]>([]);
   private FilteredCategoryListObs = this.FilteredCategoryList.asObservable();
 
+  private inCartItemsIds = new BehaviorSubject<Number[]>([]);
+  private inCartItemsIds$ = this.inCartItemsIds.asObservable();
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occured:', error.error.message);
+      // A client side or Netowrk error
+    } else {
+      // Backend returned unsucessfull response code
+      console.error('Error status:', error.status);
+      console.error('Error details:', error.error);
+    }
+    // return throwError('Something bad happened, please try again!');
+    return throwError(() => new Error('Something bad happened, please try again!'));
+  };
 
   checkedFilterItems: string[] = [];
-
   // allMenuItems!: Observable<menuItem[]>;
   itemQuanitity: number = 1;
 
@@ -32,7 +45,7 @@ export class MenuItemsService {
   }
 
   getMenuItems(): Observable<menuItem[]> {
-    return this.http.get<menuItem[]>('assets/data/menu_items.json');
+    return this.http.get<menuItem[]>('assets/data/menu_items.json').pipe(catchError(this.handleError));
   }
 
   descreaseItemAmount() {

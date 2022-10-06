@@ -78,14 +78,14 @@ export class CartItemsService {
 
 
   setInCartIdOnDelete(menuItemId: any) {
-    // const itemIndexToRemove = this.menuItemInCartId.indexOf(menuItemId);
-    // this.menuItemInCartId.splice(itemIndexToRemove, 1);
-    // this.menuItemInCartIdObs.next(this.menuItemInCartId);
+    const itemIndexToRemove = this.menuItemInCartId.indexOf(menuItemId);
+    this.menuItemInCartId.splice(itemIndexToRemove, 1);
+    this.menuItemInCartIdObs.next(this.menuItemInCartId);
   }
 
   setInCartIdOnAdd(menuItemId: any) {
-    // this.menuItemInCartId.push(menuItemId);
-    // this.menuItemInCartIdObs.next(this.menuItemInCartId);
+    this.menuItemInCartId.unshift(menuItemId);
+    this.menuItemInCartIdObs.next(this.menuItemInCartId);
   }
 
 

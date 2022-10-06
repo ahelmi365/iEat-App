@@ -9,7 +9,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
   cartItemsNumber = 0;
   notifier = new Subject<void>();
 

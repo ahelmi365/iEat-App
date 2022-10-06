@@ -1,5 +1,5 @@
 import { OrderInfo } from './../../models/order_info_model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OrderInfoService } from 'src/app/services/order-info.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './buy-now.component.html',
   styleUrls: ['./buy-now.component.css']
 })
-export class BuyNowComponent implements OnInit {
+export class BuyNowComponent implements OnInit, OnDestroy {
 
   regionsList = ['zamalek', 'mohandessin', 'dokki', 'downtown', 'maadi', 'other'];
   orderInfo: OrderInfo;

@@ -1,10 +1,13 @@
 .menu_items {
   margin-bottom: 1rem;
 }
-.item_details .card-title, .item_description{
+
+.item_details .card-title,
+.item_description {
   font-family: 'Montserrat', sans-serif;
 
 }
+
 .menu_item:hover {
   border: 1px solid #0aad0a;
 }
@@ -18,9 +21,11 @@
 button.btn.btn-success.btn-sm {
   font-weight: bold;
 }
-figcaption{
+
+figcaption {
   display: none;
 }
+
 .card-title {
   font-size: .8rem;
 }
@@ -36,6 +41,13 @@ button.btn.btn-success.btn-sm,
   overflow: hidden !important;
   text-overflow: ellipsis;
   display: block;
+
+  /* overflow-x: auto;
+  overflow-y: scroll;
+  height: 50px;
+  border-top: .1px solid green;
+  border-bottom: .1px solid green;
+  padding: 5px; */
 }
 
 .item_desc .item_description:hover {
@@ -47,8 +59,7 @@ button.btn.btn-success.btn-sm,
 
 
 .card-img-top {
-   object-fit: cover;
+  object-fit: cover;
   /*height: 116px; */
   margin-bottom: 0.5rem;
 }
-

@@ -1,3 +1,4 @@
+import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, takeUntil } from 'rxjs';
 import { menuItem } from 'src/app/models/menu_items_model';
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit, OnDestroy {
   notifier = new Subject<void>();
 
 
-  constructor(protected cartItemsService: CartItemsService) { }
+  constructor(protected cartItemsService: CartItemsService, protected menuItemService:MenuItemsService) { }
 
   ngOnInit(): void {
 
@@ -35,21 +36,8 @@ export class CartComponent implements OnInit, OnDestroy {
   onDeleteCartItem(menuItem: any) {
     menuItem.itemQuantity = 1;
     menuItem.inCart =false;
-    // console.log(menuItem.inCart );
-
     this.cartItemsService.setInCartIdOnDelete(menuItem.id);
     this.cartItemsService.DeleteCartItem(menuItem);
-    // console.log(menuItem.id);
-    const addItem = <HTMLInputElement>document.getElementById(`addItem-${menuItem.id}`)
-
-    // console.log(addItem);
-  if (addItem) {
-    // addItem.textContent="Add";
-    // addItem.classList.add('btn-success');
-    // addItem.classList.remove('btn-primary');
-
-  }
-
   }
 
   onMinusClick(id: any) {
@@ -71,6 +59,9 @@ export class CartComponent implements OnInit, OnDestroy {
   onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
     this.cartItemsService.updateItemQuantity(menuItemId, itemNewQuantity);
   }
+  // onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
+  //   this.menuItemService.updateItemQuantity(menuItemId, itemNewQuantity);
+  // }
 
   ngOnDestroy() {
     this.notifier.next();

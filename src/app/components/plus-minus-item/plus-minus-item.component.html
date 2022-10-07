@@ -1,7 +1,7 @@
 <div class="order_menu_item">
   <div class="plus-minus-item">
     <!-- [ngClass]="{'disableMinus': itemQuantity.valueAsNumber==1}" -->
-    <div (click)="onMinusClick($event)" [class.disableMinus]="!(menuItem.itemQuantity>1)" class="fa-minus-item"
+    <div (click)="onMinusClick($event)" (click)="onMinusClick2(menuItem.id); onUpdateItemQuantity(menuItem.id, itemQuantity.valueAsNumber);"  [class.disableMinus]="!(menuItem.itemQuantity>1)" class="fa-minus-item"
       id="div_minus_item_{{menuItem.id}}">
       <i class="fa fa-minus-circle" aria-hidden="true" id="minus_item_{{menuItem.id}}"></i>
     </div>
@@ -12,24 +12,23 @@
         id="item_quant_{{menuItem.id}}" class="form-control form-input small text-center" readonly>
     </div>
 
-    <div (click)="onPlusClick($event)" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
+    <div (click)="onPlusClick($event)" (click)="onPlusClick2(menuItem.id); onUpdateItemQuantity(menuItem.id, itemQuantity.valueAsNumber);" class="fa-plus-item" id="div_plus_item_{{menuItem.id}}">
       <i class="fa fa-plus-circle" aria-hidden="true" id="plus_item_{{menuItem.id}}"></i>
     </div>
 
   </div>
 
-  <!-- <div class="add-item_menu">
-
-    <button (click)="onAddToCart($event, menuItem.itemQuantity)"
-      [ngClass]="menuItem.inCart? 'btn-primary': 'btn-success'" class="btn  btn-sm add-btn"
-      id="addItem-{{menuItem.id}}">{{menuItem.inCart? 'Update': 'Add'}}</button>
-  </div> -->
-
   <div class="add-item_menu">
 
-    <button (click)="onAddToCart($event, menuItem.itemQuantity)" *ngIf="!(menuItem.inCart)"
+    <button *ngIf="!(menuItem.inCart)" (click)="onAddToCart($event, menuItem.itemQuantity)"
       class="btn btn-success btn-sm add-btn " id="addItem-{{menuItem.id}}">Add</button>
-    <span *ngIf="menuItem.inCart" class="item-added"><i class="fa fa-solid fa-check"></i></span>
+
+    <div *ngIf="menuItem.inCart" (click)="onDeleteFromCart(menuItem)" class="delet-item_menu text-center">
+      <i class="fa fa-solid fa-trash"></i>
+    </div>
+
   </div>
+
+
 
 </div>

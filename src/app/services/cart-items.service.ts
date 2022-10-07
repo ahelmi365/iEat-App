@@ -21,6 +21,17 @@ export class CartItemsService {
 
   constructor() { }
 
+
+  getItemQuantity(menuItemId:any){
+    let itemQuantity:Number = 1;
+    this.cartDataList.forEach((element: any) => {
+      if (element.id == menuItemId) {
+        itemQuantity = element.itemQuantity;
+      }
+    });
+    return itemQuantity;
+
+  }
   addToCart(menuItem: menuItem) {
     // check if the item is already in the Cart
     const itemFound: boolean = this.cartDataList.some((el: any) => el.id === menuItem.id);

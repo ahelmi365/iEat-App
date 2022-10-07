@@ -37,25 +37,6 @@ export class PlusMinusItemComponent implements OnInit {
       this.selectedMenuItems = menuItem;
       // console.log(this.selectedMenuItems);
     });
-
-  // this.cartItemsService
-  //   .getInCartId()
-  //   .pipe(takeUntil(this.notifier))
-  //   .subscribe((menuItemInCartIds) => {
-  //     // console.log(menuItemId);
-  //     this.inCartItemsIds = menuItemInCartIds;
-  //     // console.log(this.inCartItemsIds);
-
-  //     this.menuItems.forEach((item) => {
-  //       if (this.inCartItemsIds.includes(item.id)) {
-  //         console.log('this.inCartItemsIds includes id:', item.id);
-  //         item.inCart = true;
-  //       } else {
-  //         item.inCart = false;
-  //       }
-  //     });
-  //   });
-
   }
 
 
@@ -68,16 +49,26 @@ export class PlusMinusItemComponent implements OnInit {
     }
     this.cartItemsService.calculateCartTotalUSD();
   }
+
+
   onPlusClick(event: any) {
     this.menuItem.itemQuantity=Number(this.menuItem.itemQuantity)+1;
     this.cartItemsService.calculateCartTotalUSD();
   }
 
 
-  // getItemQuant() {
-  //   const item_quant_input = <HTMLInputElement>document.getElementById("item_quant_" + this.menuItem.id)
-  //   return (item_quant_input);
-  // }
+  onMinusClick2(itemId:any){
+
+  }
+
+  onPlusClick2(itemId:any){
+
+  }
+
+  onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
+    this.cartItemsService.updateItemQuantity(menuItemId, itemNewQuantity);
+  }
+
 
   // on click on Add button
   onAddToCart(event: any, itemQuantity: Number) {
@@ -86,7 +77,13 @@ export class PlusMinusItemComponent implements OnInit {
     this.menuItem.inCart=true;
     this.cartItemsService.setInCartIdOnAdd(this.menuItem.id);
     this.cartItemsService.addToCart(this.menuItem);
+  }
 
+  onDeleteFromCart(menuItem: any) {
+    menuItem.itemQuantity = 1;
+    menuItem.inCart =false;
+    this.cartItemsService.setInCartIdOnDelete(menuItem.id);
+    this.cartItemsService.DeleteCartItem(menuItem);
   }
 
 

@@ -31,12 +31,13 @@
   color: green;
 }
 
-.fa-minus-item {
+.fa-minus-item, .delet-item_menu {
   color: red;
 }
 
 .fa-minus-item,
-.fa-plus-item {
+.fa-plus-item ,
+.delet-item_menu{
   font-size: 1.25rem;
   align-items: center;
   cursor: pointer;

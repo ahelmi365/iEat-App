@@ -35,6 +35,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
     this.getcartDataList();
     this.getInCartItemsIds();
     this.getAllMenuItems();
+
   }
 
   checkIntersection(menuItemCategoryList: any): boolean {
@@ -94,6 +95,16 @@ export class MenuListComponent implements OnInit, OnDestroy {
       }
     });
   }
+  setItemQuantity() {
+    this.menuItems.forEach((item) => {
+      if (this.inCartItemsIds.includes(item.id)) {
+        item.itemQuantity=this.cartItemsService.getItemQuantity(item.id);
+      } else {
+        item.itemQuantity=1
+      }
+    });
+  }
+
   getCartItemsNumber() {
     this.cartItemsService
       .getCartItemsNumber()
@@ -137,10 +148,9 @@ export class MenuListComponent implements OnInit, OnDestroy {
         this.menuItems = res;
         this.menuItems.forEach((item) => {
           item['itemQuantity'] = 1;
-          // item['inCart'] = false;
         });
-
         this.addDeleteButton();
+        this.setItemQuantity();
       });
   }
   scrollUp() {

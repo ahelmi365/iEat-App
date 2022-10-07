@@ -1,6 +1,6 @@
+import { menuItem } from './../models/menu_items_model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, observable, Subject, throwError } from 'rxjs';
-import { menuItem } from '../models/menu_items_model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 
@@ -10,6 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class MenuItemsService {
 
 
+  private menuItem: menuItem[] = [];
 
   private FilteredCategoryList = new BehaviorSubject<string[]>([]);
   private FilteredCategoryListObs = this.FilteredCategoryList.asObservable();
@@ -67,6 +68,8 @@ export class MenuItemsService {
     return intersection.length > 0;
   }
 
+
+
   getIntersection_2(listOne: [], listTwo: string[]): boolean {
     const set1 = new Set(listOne);
     const set2 = new Set(listTwo);
@@ -76,5 +79,16 @@ export class MenuItemsService {
     );
     return intersection.length > 0;
   }
+
+   updateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
+  //   const indexOfItem = this.cartDataList.findIndex(item => item.id === menuItemId);
+  //   this.cartDataList.forEach(item => {
+  //     if (item.id == menuItemId) {
+  //       item.itemQuantity = itemNewQuantity;
+  //     }
+  //   });
+  //   this.cartDataListObs.next(this.cartDataList);
+  //   this.calculateCartTotalUSD();
+   }
 
 }

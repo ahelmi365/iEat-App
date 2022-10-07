@@ -35,7 +35,6 @@ export class MenuListComponent implements OnInit, OnDestroy {
     this.getcartDataList();
     this.getInCartItemsIds();
     this.getAllMenuItems();
-
   }
 
   checkIntersection(menuItemCategoryList: any): boolean {
@@ -98,9 +97,9 @@ export class MenuListComponent implements OnInit, OnDestroy {
   setItemQuantity() {
     this.menuItems.forEach((item) => {
       if (this.inCartItemsIds.includes(item.id)) {
-        item.itemQuantity=this.cartItemsService.getItemQuantity(item.id);
+        item.itemQuantity = this.cartItemsService.getItemQuantity(item.id);
       } else {
-        item.itemQuantity=1
+        item.itemQuantity = 1
       }
     });
   }
@@ -129,9 +128,21 @@ export class MenuListComponent implements OnInit, OnDestroy {
     this.cartItemsService
       .getcartDataList()
       .pipe(takeUntil(this.notifier))
-      .subscribe((menuItem) => {
-        this.selectedMenuItems = menuItem;
+      .subscribe((cartItem) => {
+        this.selectedMenuItems = cartItem;
+        this.updateMenuItemQuantity()
       });
+  }
+
+  updateMenuItemQuantity() {
+    for (const cartItem of this.selectedMenuItems) {
+      // console.log(cartItem);
+      for (const menuItem of this.menuItems) {
+        if (cartItem.id == menuItem.id) {
+          menuItem.itemQuantity = cartItem.itemQuantity;
+        }
+      }
+    }
   }
   getInCartItemsIds() {
     this.cartItemsService.getInCartId().pipe(takeUntil(this.notifier)).subscribe(inCartIDs => {

@@ -56,12 +56,10 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
 
-  onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
-    this.cartItemsService.updateItemQuantity(menuItemId, itemNewQuantity);
+  onUpdateItemQuantity(cartItemId: any, newCartItemQuantity: Number) {
+    this.cartItemsService.updateItemQuantity(cartItemId, newCartItemQuantity);
   }
-  // onUpdateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
-  //   this.menuItemService.updateItemQuantity(menuItemId, itemNewQuantity);
-  // }
+
 
   ngOnDestroy() {
     this.notifier.next();

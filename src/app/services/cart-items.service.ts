@@ -38,9 +38,9 @@ export class CartItemsService {
 
     if (itemFound) {
 
-      this.cartDataList.forEach((element: any) => {
-        if (element.id == menuItem.id) {
-          element.itemQuantity = menuItem.itemQuantity;
+      this.cartDataList.forEach((cartItem: any) => {
+        if (cartItem.id == menuItem.id) {
+          cartItem.itemQuantity = menuItem.itemQuantity;
         }
       });
       this.calculateCartTotalUSD();
@@ -114,6 +114,7 @@ export class CartItemsService {
     });
     this.cartDataListObs.next(this.cartDataList);
     this.calculateCartTotalUSD();
+
   }
 
   clearCartList() {

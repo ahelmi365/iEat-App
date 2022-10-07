@@ -24,44 +24,55 @@ export class PlusMinusItemComponent implements OnInit {
       description: '',
       itemQuantity: 0,
       category: [],
-      inCart:false
+      inCart: false
     }
   }
 
   ngOnInit(): void {
 
     this.cartItemsService
-    .getcartDataList()
-    .pipe(takeUntil(this.notifier))
-    .subscribe((menuItem) => {
-      this.selectedMenuItems = menuItem;
-      // console.log(this.selectedMenuItems);
-    });
+      .getcartDataList()
+      .pipe(takeUntil(this.notifier))
+      .subscribe((cartItem) => {
+        this.selectedMenuItems = cartItem;
+        // console.log(this.selectedMenuItems);
+        // console.log(this.menuItem);
+        // for (const cartItem in this.selectedMenuItems) {
+        //   for (const menuItem in this.menuItem) {
+        //     if (menuItem.id == ) {
+
+        //     }
+
+        //   }
+        // }
+
+
+      });
   }
 
 
   onMinusClick(event: any) {
     if (Number(this.menuItem.itemQuantity) <= 1) {
-      this.menuItem.itemQuantity=1;
+      this.menuItem.itemQuantity = 1;
       return;
     } else {
-      this.menuItem.itemQuantity=Number(this.menuItem.itemQuantity)-1;
+      this.menuItem.itemQuantity = Number(this.menuItem.itemQuantity) - 1;
     }
     this.cartItemsService.calculateCartTotalUSD();
   }
 
 
   onPlusClick(event: any) {
-    this.menuItem.itemQuantity=Number(this.menuItem.itemQuantity)+1;
+    this.menuItem.itemQuantity = Number(this.menuItem.itemQuantity) + 1;
     this.cartItemsService.calculateCartTotalUSD();
   }
 
 
-  onMinusClick2(itemId:any){
+  onMinusClick2(itemId: any) {
 
   }
 
-  onPlusClick2(itemId:any){
+  onPlusClick2(itemId: any) {
 
   }
 
@@ -74,14 +85,14 @@ export class PlusMinusItemComponent implements OnInit {
   onAddToCart(event: any, itemQuantity: Number) {
     // this.menuItem.itemQuantity = itemQuantity;
     // console.log(this.menuItem.inCart );
-    this.menuItem.inCart=true;
+    this.menuItem.inCart = true;
     this.cartItemsService.setInCartIdOnAdd(this.menuItem.id);
     this.cartItemsService.addToCart(this.menuItem);
   }
 
   onDeleteFromCart(menuItem: any) {
     menuItem.itemQuantity = 1;
-    menuItem.inCart =false;
+    menuItem.inCart = false;
     this.cartItemsService.setInCartIdOnDelete(menuItem.id);
     this.cartItemsService.DeleteCartItem(menuItem);
   }

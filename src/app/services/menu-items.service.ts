@@ -10,7 +10,13 @@ import { catchError, map } from 'rxjs/operators';
 export class MenuItemsService {
 
 
-  private menuItem: menuItem[] = [];
+  // private menuItem: menuItem[] = [];
+  // private menuItems = new BehaviorSubject<menuItem[]>([]);
+  // private menuItems$ = this.menuItems.asObservable();
+
+  private allMenuItems: menuItem[] = [];
+  private menuItems$ = new BehaviorSubject(this.allMenuItems);
+
 
   private FilteredCategoryList = new BehaviorSubject<string[]>([]);
   private FilteredCategoryListObs = this.FilteredCategoryList.asObservable();
@@ -49,6 +55,32 @@ export class MenuItemsService {
     return this.http.get<menuItem[]>('assets/data/menu_items.json').pipe(catchError(this.handleError));
   }
 
+
+
+
+  getAllIJSONtems() {
+    this.http.get<menuItem[]>('assets/data/menu_items.json').subscribe((res) => {
+      this.allMenuItems = res;
+      console.log(res);
+      console.log(this.allMenuItems);
+      // this.menuItems$.next(this.allMenuItems);
+      // console.log( this.menuItems$);
+
+
+    });
+
+  }
+
+  getAllItems() {
+    this.getAllIJSONtems();
+    console.log(this.allMenuItems);
+
+    return this.allMenuItems;
+  }
+
+
+
+
   descreaseItemAmount() {
     this.itemQuanitity--;
   }
@@ -70,6 +102,8 @@ export class MenuItemsService {
 
 
 
+
+
   getIntersection_2(listOne: [], listTwo: string[]): boolean {
     const set1 = new Set(listOne);
     const set2 = new Set(listTwo);
@@ -80,15 +114,15 @@ export class MenuItemsService {
     return intersection.length > 0;
   }
 
-   updateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
-  //   const indexOfItem = this.cartDataList.findIndex(item => item.id === menuItemId);
-  //   this.cartDataList.forEach(item => {
-  //     if (item.id == menuItemId) {
-  //       item.itemQuantity = itemNewQuantity;
-  //     }
-  //   });
-  //   this.cartDataListObs.next(this.cartDataList);
-  //   this.calculateCartTotalUSD();
-   }
+  updateItemQuantity(menuItemId: any, itemNewQuantity: Number) {
+    //   const indexOfItem = this.cartDataList.findIndex(item => item.id === menuItemId);
+    //   this.cartDataList.forEach(item => {
+    //     if (item.id == menuItemId) {
+    //       item.itemQuantity = itemNewQuantity;
+    //     }
+    //   });
+    //   this.cartDataListObs.next(this.cartDataList);
+    //   this.calculateCartTotalUSD();
+  }
 
 }

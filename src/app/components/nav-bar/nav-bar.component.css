@@ -40,7 +40,7 @@ label.home {
 
 .nav__bar .nav__section {
   float: right;
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .nav__bar ul li,
@@ -76,7 +76,7 @@ label.home {
   margin-right: 10px;
   max-width: 145px;
   line-height: 1;
-  width: 100px;
+  width: 75px;
 }
 
 .nav-btn-search {
@@ -145,14 +145,25 @@ label.home {
 }
 
 li.nav-item {
-  min-width: 87px;
+  /* min-width: 70px; */
+  /* text-align: center; */
 }
 
+.nav__section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.cartLink{
+  /* width: 75px; */
+  text-align: left;
+}
 
 @media (max-width:952px) {
   label.home {
     font-size: 1rem;
-    padding-left: 50px;
+    padding-left: 10px;
   }
 
   .nav__bar ul li a {
@@ -160,13 +171,20 @@ li.nav-item {
   }
 }
 
-@media (max-width:700px) {
+@media (max-width:550px){
   label.home {
     display: block;
   }
 
   .check__btn {
     display: block;
+  }
+
+  .nav__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: center; */
   }
 
   .nav__section {
@@ -178,7 +196,7 @@ li.nav-item {
     top: 50px;
     left: -100%;
     text-align: center;
-    width: 100%;
+    width: 95%;
     transition: all .5s;
   }
 
@@ -239,3 +257,5 @@ li.nav-item {
     width: 100%;
   }
 }
+
+

@@ -1,6 +1,6 @@
 import { takeUntil, Subject } from 'rxjs';
 import { OrderInfoService } from 'src/app/services/order-info.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { OrderInfo } from 'src/app/models/order_info_model';
 import { CartItemsService } from 'src/app/services/cart-items.service';
 import { DatePipe } from '@angular/common';
@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.css']
 })
-export class ConfirmationComponent implements OnInit , OnDestroy{
+export class ConfirmationComponent implements OnInit, AfterViewInit, OnDestroy {
   orderInfo: OrderInfo;
 
   cartTotalUSD = 0;
@@ -19,7 +19,7 @@ export class ConfirmationComponent implements OnInit , OnDestroy{
   orderVATTax = .14;
   orderDeliveryFees = 1;
 
-  orderTotal:Number = 0;
+  orderTotal: Number = 0;
 
   orderDate = Date.now();
 
@@ -36,40 +36,34 @@ export class ConfirmationComponent implements OnInit , OnDestroy{
   }
 
   ngOnInit(): void {
-    this.orderInfoService.getOrderInfo().pipe(takeUntil(this.notifier)).subscribe(orderinfo => {
-      this.orderInfo = orderinfo;
-      // console.log(this.orderInfo);
-    });
-
-    this.cartItemsService.getcartTotalUSD().pipe(takeUntil(this.notifier)).subscribe(totalCart => {
-      this.cartTotalUSD = Number(totalCart);
-      console.log( `this.cartTotalUSD ${this.cartTotalUSD}`);
-      console.log(`totalcart from cart service: ${totalCart}`);
-
-    });
-
-    this.cartItemsService.getCartItemsNumber().pipe(takeUntil(this.notifier)).subscribe(cartItemnumber => {
-      this.cartItemsNumber = cartItemnumber;
-    });
-
-    this.orderVATTax = +(this.cartTotalUSD *.14).toFixed(2);
-    this.orderTotal = this.cartTotalUSD + this.orderVATTax + this.orderDeliveryFees;
-    this.orderTotal  = +this.orderTotal.toFixed(2);
-    // console.log( this.orderTotal );
-    // console.log(this.orderDate);
-
-
+    this.getOrderInfo();
+    this.getCartItemsNumber();
+    this.getCartTotalUSD();
+    this.calculateOrderTotal();
   }
 
+  getOrderInfo() {
+    this.orderInfo = this.orderInfoService.getFinalOrderInfo();
+  }
+  getCartItemsNumber() {
+    this.cartItemsNumber = this.cartItemsService.getFinalCartItemsNumber();
+  }
+  getCartTotalUSD() {
+    this.cartTotalUSD = Number(this.cartItemsService.getFinalCartTotalUSD().toFixed(2));
+  }
+  calculateOrderTotal() {
+    this.orderVATTax = +(this.cartTotalUSD * .14).toFixed(2);
+    this.orderTotal = this.cartTotalUSD + this.orderVATTax + this.orderDeliveryFees;
+    this.orderTotal = +this.orderTotal.toFixed(2);
+  }
 
+  ngAfterViewInit() {
+    this.cartItemsService.clearCartList();
+  }
 
   ngOnDestroy() {
     this.notifier.next();
     this.notifier.complete();
-    this.cartItemsService.clearCartList();
   }
-
-
-
 
 }

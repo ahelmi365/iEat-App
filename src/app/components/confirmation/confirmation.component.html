@@ -10,7 +10,8 @@
       <div class="item-detail"><h2>Order Time</h2>: {{orderDate | date :'shortTime'}} </div>
       <div class="item-detail"><h2>Delivering Region:</h2> {{orderInfo.orderRegion | titlecase }}</div>
       <div class="item-detail"><h2>Delivering Address</h2>: {{orderInfo.orderAddressInDetails}}</div>
-      <div class="item-detail"><h2>Subtotal</h2>: ${{cartTotalUSD}}</div>
+      <div class="item-detail"><h2>Number of items</h2>: {{cartItemsNumber}}</div>
+      <div class="item-detail"><h2>Subtotal</h2>: ${{cartTotalUSD | number:'0.2'}}</div>
       <div class="item-detail"><h2>Vat Tax (14%)</h2>: ${{orderVATTax}}</div>
       <div class="item-detail"><h2>Delivery Fees</h2>: ${{orderDeliveryFees}}</div>
       <hr >

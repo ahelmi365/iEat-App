@@ -1,32 +1,52 @@
-
-<div class="menu_items" >
+<div class="menu_items">
   <div class="card menu_item">
-
     <div class="card-body">
-      <figure>
-        <img class="card-img-top" src="{{menuItem.url}}" width="163" height="95" title="{{menuItem.name}}" alt="A photo of {{menuItem.name}}: {{menuItem.description}}">
+      <figure (click)="showMoreDetails()" class="item-image">
+        <img class="card-img-top" src="{{menuItem.url}}" width="163" height="95" title="{{menuItem.name}}"
+          alt="A photo of {{menuItem.name}}: {{menuItem.description}}">
         <figcaption>A photo of {{menuItem.name}}</figcaption>
       </figure>
       <div class="item_details">
         <div>
           <h2 class="card-title">{{menuItem.name}}</h2>
-
         </div>
         <div class="item_price">${{menuItem.price}}</div>
-
       </div>
-      <div class="item_desc ">
+      <div class="item_desc" *ngIf="false">
         <p class="card-text item_description small-scroll-bar">{{menuItem.description}}</p>
       </div>
-
-      <!-- <div class="item_desc">
-        <details>
-          <summary>Description</summary>
-          <p class="card-text item_description">{{menuItem.description}}</p>
-        </details>
-      </div> -->
+      <div class="show-more-details" (click)="showMoreDetails()">
+        <p class="item_description">More details...</p>
+      </div>
       <app-plus-minus-item [menuItem]="menuItem"></app-plus-minus-item>
     </div>
   </div>
-
+</div>
+<div class="item-more-details" id="item-more-details" [class.noScroll]="showItemMoreDetails" *ngIf="showItemMoreDetails">
+  <div class="close-details" (click)="hideItemDetails()">
+    <!-- <i class="fa fa-window-close close-icon" aria-hidden="true"></i> -->
+    <i class="fa fa-times-circle close-icon" aria-hidden="true"></i>
+    <!-- <i class="fa fa-solid fa-circle-xmark close-icon"></i> -->
+  </div>
+  <div class="sub-item-more-detail">
+    <div class="card menu_item card-in-details">
+      <div class="card-body">
+        <figure>
+          <img class="card-img-top" src="{{menuItem.url}}" width="163" height="95" title="{{menuItem.name}}"
+            alt="A photo of {{menuItem.name}}: {{menuItem.description}}">
+          <figcaption>A photo of {{menuItem.name}}</figcaption>
+        </figure>
+        <div class="item_details">
+          <div>
+            <h2 class="card-title">{{menuItem.name}}</h2>
+          </div>
+          <div class="item_price">${{menuItem.price}}</div>
+        </div>
+        <div class="item_desc">
+          <p class="card-text item_description small-scroll-bar">{{menuItem.description}}</p>
+        </div>
+        <app-plus-minus-item [menuItem]="menuItem"></app-plus-minus-item>
+      </div>
+    </div>
+  </div>
 </div>

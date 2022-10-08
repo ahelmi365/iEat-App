@@ -8,24 +8,29 @@ import { BehaviorSubject } from 'rxjs';
 export class OrderInfoService {
   // private orderInfo:OrderInfo[]=[];
 
-  private orderInfo = new BehaviorSubject<OrderInfo>({
+  private orderInfo ={
     firstName:"",
     lastName:"",
     phoneNumber:"",
     orderRegion:"",
     orderAddressInDetails:"",
     orderOtherNotes:""
-  });
-  private orderInfoObs = this.orderInfo.asObservable();
+  };
+  // private orderInfoObs = this.orderInfo.asObservable();
+  private orderInfoObs =  new BehaviorSubject<OrderInfo>(this.orderInfo);
   constructor() { }
 
 
   submitOrderInfo(orderInfo: OrderInfo) {
-    this.orderInfo.next(orderInfo);
+    this.orderInfo = orderInfo;
+    this.orderInfoObs.next(this.orderInfo);
   }
 
-  getOrderInfo() {
-    return this.orderInfoObs;
+  // getOrderInfo() {
+  //   return this.orderInfoObs;
+  // }
+  getFinalOrderInfo(){
+    return this.orderInfo;
   }
 
 }

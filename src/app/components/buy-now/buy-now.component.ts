@@ -102,7 +102,7 @@ export class BuyNowComponent implements OnInit, OnDestroy {
 
   }
 
-  submitOrderInfoForm(event: any) {
+  submitOrderInfoForm(orderInfo: OrderInfo) {
     this.orderInfo.firstName = this.orderInfoForm.get('firstName')?.value ?? "";
     this.orderInfo.lastName = this.orderInfoForm.get('lastName')?.value ?? "";
     this.orderInfo.phoneNumber = this.orderInfoForm.get('userPhone')?.value ?? "";

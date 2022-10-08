@@ -62,10 +62,16 @@ export class CartItemsService {
   getcartTotalUSD() {
     return this.cardTotalUSDObs.asObservable();
   }
+
+  getFinalCartTotalUSD(){
+    return this.cardTotalUSD;
+  }
   getCartItemsNumber() {
     return this.cartItemsNumberObs.asObservable();
   }
-
+  getFinalCartItemsNumber(){
+    return this.cartItemsNumber;
+  }
   calculateCartTotalUSD() {
     this.cardTotalUSD = 0;
 
@@ -125,7 +131,7 @@ export class CartItemsService {
     this.cartItemsNumberObs.next(this.cartItemsNumber);
 
     this.cardTotalUSD = 0;
-    this.cardTotalUSDObs.next(0);
+    this.cardTotalUSDObs.next(this.cardTotalUSD);
 
     this.menuItemInCartId=[];
     this.menuItemInCartIdObs.next(this.menuItemInCartId);

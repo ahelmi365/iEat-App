@@ -4,7 +4,7 @@
     "name": "Falafel",
     "price": 0.25,
     "url": "assets/images/food/meals/falafel-small.jpg",
-    "description": "Chickpea, herbs, spices.",
+    "description": "falafel, a staple Middle Eastern dish—and a popular street food around the world—that consists of fried spiced balls or patties of ground chickpeas or fava beans (or a mixture of both)",
     "category":["all","breakfast"]
   },
   {
@@ -12,7 +12,7 @@
     "name": "Beans",
     "price": 0.5,
     "url": "assets/images/food/meals/beans-small.jpeg",
-    "description": "Beans plate with Tehyna and limon",
+    "description": "Baked beans is a dish traditionally containing white beans that are parboiled and then, in the US, baked in sauce at low temperature for a lengthy period.",
     "category":["all","breakfast"]
   },
   {
@@ -20,7 +20,7 @@
     "name": "Beans & Eggs",
     "price": 0.99,
     "url": "assets/images/food/meals/beans-eggs-small.png",
-    "description": "Beans plate with Eggs, Tehyna and limon",
+    "description": "Eggs plus baked beans which is a dish traditionally containing white beans that are parboiled and then, in the US, baked in sauce at low temperature for a lengthy period.",
     "category":["all","breakfast"]
   },
 
@@ -29,7 +29,7 @@
     "name": "Baba Ghanoug",
     "price": 0.5,
     "url": "assets/images/food/meals/baba-small.jpg",
-    "description": "cream of roasted eggplant, olive oil, garlic, sesame paste (tahini) and lemon",
+    "description": "baba ghanoush, also spelled baba ganoush or baba ganouj, relish with Middle Eastern origins that is made of eggplant (aubergine) blended with tahini, garlic, lemon juice, and salt.",
     "category":["all","breakfast", "salad","lunch"]
   },
 
@@ -38,7 +38,7 @@
     "name": "Pasta Salad",
     "price": 0.99,
     "url": "assets/images/food/meals/pasta-salad-small.jpg",
-    "description": "Lettuce, vegetables, mozzarella.",
+    "description": "Fresh and easy pasta salad packed with crisp vegetables, fresh mozzarella, and tossed with a simple homemade dressing. The perfect side dish!",
     "category":["all","breakfast", "salad","lunch"]
   },
   {
@@ -46,7 +46,7 @@
     "name": "Greek Salad",
     "price": 1.5,
     "url": "assets/images/food/meals/greek-salad-small.jpg",
-    "description": "Cucumbers, onion, feta cheese.",
+    "description": "This easy Greek Salad is made with plum tomatoes, cucumbers, red onion, bell pepper, kalamata olives, and crumbled feta cheese. Tossed with a lemon and red wine vinegar vinaigrette dressing.",
     "category":["all","breakfast", "salad","lunch"]
   },
 
@@ -100,7 +100,7 @@
     "name": "Koshary",
     "price": 1.99,
     "url": "assets/images/food/meals/koshary-small.jpg",
-    "description": "Rice, macroni, shearya, onion, and salsa",
+    "description": "A traditional Egyptian staple, mixing pasta, rice and brown lentils, and topped with a zesty tomato sauce, garlic vinegar and garnished with chickpeas and crispy fried onions.",
     "category":["all","lunch"]
   },
   {

@@ -8,7 +8,8 @@
     <div class="nav__section">
       <ul class="nav__list" >
         <li class="nav-item" *ngFor="let navItem of navBarItems">
-          <a routerLink="/{{navItem.url}}" [class.disable-link]="cartItemsNumber==0 && navItem.navTitle=='Cart' ">{{navItem.navTitle}}</a>
+          <a routerLink="/{{navItem.url}}" [class.disable-link]="cartItemsNumber==0 && navItem.navTitle=='Cart' ">{{navItem.navTitle}}
+            <sup *ngIf="navItem.navTitle == 'Cart' && cartItemsNumber>0"><small class="cartItemsNumber">{{cartItemsNumber}}</small></sup></a>
         </li>
       </ul>
 

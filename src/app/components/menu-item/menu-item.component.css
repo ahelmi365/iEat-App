@@ -5,7 +5,10 @@
 .item_details .card-title,
 .item_description {
   font-family: 'Montserrat', sans-serif;
+}
 
+h2.card-title {
+  font-weight: bold;
 }
 
 .menu_item:hover {
@@ -36,19 +39,7 @@ button.btn.btn-success.btn-sm,
   font-size: 0.7rem;
 }
 
-.item_desc .item_description {
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  display: block;
 
-  /* overflow-x: auto;
-  overflow-y: scroll;
-  height: 50px;
-  border-top: .1px solid green;
-  border-bottom: .1px solid green;
-  padding: 5px; */
-}
 
 .item_desc .item_description:hover {
   white-space: unset;
@@ -56,10 +47,70 @@ button.btn.btn-success.btn-sm,
   width: unset;
 }
 
-
+.item-image {
+  cursor: pointer;
+}
 
 .card-img-top {
   object-fit: cover;
   /*height: 116px; */
   margin-bottom: 0.5rem;
+}
+
+.show-more-details {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.item-more-details {
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  background: rgba(0, 10, 10, .8);
+  /* opacity: .8; */
+  z-index: 11;
+  /* color: white; */
+  position: fixed;
+  top: 1rem;
+  right: 0;
+  /* left: 1rem; */
+  bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sub-item-more-detail {
+  width: 70vw;
+  max-width: 420px;
+  /* height: 70vh; */
+  color: black;
+  background: white;
+  opacity: 1;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-details {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.close-icon:hover {
+  color: red;
+  background-color: white;
+  border-radius: 50%;
+  line-height: .5;
+
 }

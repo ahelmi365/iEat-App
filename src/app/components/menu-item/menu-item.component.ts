@@ -11,6 +11,7 @@ import { CartItemsService } from 'src/app/services/cart-items.service';
 export class MenuItemComponent implements OnInit {
   @Input() menuItem: menuItem;
   private selectedMenuItems: menuItem[] = [];
+  showItemMoreDetails: boolean = false;
 
 
   constructor(protected menuItemsService: MenuItemsService, protected cartItemsService: CartItemsService) {
@@ -28,6 +29,17 @@ export class MenuItemComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+  }
+
+  showMoreDetails() {
+    this.showItemMoreDetails = true;
+  }
+
+  hideItemDetails(){
+    this.showItemMoreDetails = false;
+    // const itemDetailsDiv = document.getElementById('item-more-details') as HTMLElement;
+    // itemDetailsDiv.style.display='none';
 
   }
 

@@ -150,7 +150,7 @@ li.nav-item {
 }
 
 .nav__section{
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
 

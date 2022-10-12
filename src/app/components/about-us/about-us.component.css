@@ -1,0 +1,33 @@
+.container{
+    /* margin-top: 5rem; */
+    padding: 2rem;
+    max-width: 500px;
+    margin: 5rem auto auto;
+}
+
+
+.contact-card{
+  padding: 1rem;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+}
+
+.details{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+
+}
+
+a{
+  margin: 1rem;
+}
+.conatcts{
+  font-size: 1rem;
+  overflow-x: auto;
+
+}
+
+.fa{
+  font-weight: bold;
+}
+

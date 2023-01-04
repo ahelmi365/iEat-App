@@ -1,4 +1,5 @@
 # IEat
+## Live Demo Link: <a href="https://ieatapp.web.app/" target="_blank"> Click Here</a>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 

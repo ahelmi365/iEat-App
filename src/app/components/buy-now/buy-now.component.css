@@ -60,10 +60,6 @@ textarea::placeholder,
 input::placeholder {
     font-size: .9rem;
 }
-.form-field input,
-.form-field textarea:focus{
-  /* outline-color: #28a745 ; */
-}
 
 .form-field {
   margin-top: .5rem;
